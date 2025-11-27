@@ -1,0 +1,1 @@
+<img src="<%= request.getContextPath()%>/imagens/transferir.gif" width="100%" height="80px">

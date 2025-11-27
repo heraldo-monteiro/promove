@@ -1,0 +1,87 @@
+
+/*==============================================================================*/
+/* === Formulário === */
+.form-table { 
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* centraliza o formulário na tela */
+}
+
+.nome-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 0; /* colado na esquerda */   
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(128,128,0);
+}
+
+.campo {
+  display: flex;
+  align-items: center;
+}
+
+.campo label {
+  width: 80px;
+  font-weight: 700;
+}
+
+.input-nome,
+.select-menu {
+  flex: 1;
+  padding: 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;    
+}
+
+.input-nome {
+  background-color: rgb(128,128,128);
+}
+
+.select-menu {
+  background-color: rgb(143,188,143); 
+}
+
+.btn-vincule-list {
+  margin-top: 10px;
+}
+
+
+
+/* === Tabela === */
+.container {
+  width: 100%;
+  overflow-x: auto; /* evita transbordamento horizontal */
+}
+
+.table {
+  margin: 10px;
+  width: 100%;
+  table-layout: fixed; /* impede colunas de estourarem o container */
+  border-collapse: collapse;
+  word-wrap: break-word;
+}
+
+th, td {
+  white-space: normal; /* permite quebra de linha */
+  word-break: break-word;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Opcional: ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 6px;
+  }
+}
+
+

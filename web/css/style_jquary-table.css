@@ -1,0 +1,19 @@
+
+.dataTables_filter {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 3px;       
+}
+
+/* Espaçamento entre os dois */
+.dataTables_length {
+    margin-right: 5px;
+}
+
+/* Opcional: alinhar ambos à direita ou à esquerda */
+.dataTables_wrapper .dataTables_filter {
+    float: right !important;
+}
+.dataTables_wrapper .dataTables_length {
+    float: left !important;
+}

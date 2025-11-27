@@ -1,0 +1,22 @@
+#footer{
+    width: 100%;
+
+    height: 80px;
+}
+.footer {
+    display: flex;
+    flex-wrap: wrap;     /* Quebrar linha sem transbordar */
+    justify-content: space-between; /* Espaço igual entre as colunas */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+    gap: 20px;
+}
+.footer  ul{ 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

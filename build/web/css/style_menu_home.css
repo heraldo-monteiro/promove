@@ -1,0 +1,48 @@
+/* Barra de Menu Home */
+#menuBar ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;   
+    gap: 3px;    
+}
+li{
+   letter-spacing: 1px; /* Espaçamento entre as letras  do Login*/     
+}
+
+.menu-bar ul li:last-child {
+    margin-left: auto; /* empurra o último item para a direita */
+}
+
+.registrar_login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botão de Login */
+.btnHomeRegistrar, .btnHomeLogin{
+    display: flex;
+    align-items: center; 
+    justify-content: center;   
+    padding: 10px;
+    width: auto;
+}
+
+.btnRegistrar, .btnLogin{   
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px  solid #588157 ; 
+    color: green;
+    text-decoration:  none;
+    font-weight: 300;        
+    letter-spacing: 3px; /* Espaçamento entre as letras  do Login*/
+    padding: 8px 0;
+}
+.btnRegistrar, .btnLogin:hover{  
+    transition: background 0.2s, color 0.2s;
+
+}

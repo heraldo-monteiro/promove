@@ -1,0 +1,21 @@
+.alert-box {
+    width: 300px; /* largura menor */   
+    background-color: #f8d7da; /* vermelho claro */
+    color: #721c24; /* texto vermelho escuro */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);        
+    animation: desaparecer 0.5s ease 5s forwards;
+}
+
+@keyframes desaparecer{
+    to{
+        borde: 1px red solid;
+        opacity: 0;        
+        padding: 0
+        margin: 0;  
+        height: 0;
+    }    
+}
