@@ -35,48 +35,72 @@ public class GerenciarMenu extends HttpServlet {
         
         try {
             if(acao.equals("listar")){
-                ArrayList<Menu> menus = new ArrayList<>();
-                menus = mdao.getListarMenu();
-                despachar = getServletContext().getRequestDispatcher("/listarMenu.jsp");
-                request.setAttribute("menus", menus);
-                despachar.forward(request, response);  
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    ArrayList<Menu> menus = new ArrayList<>();
+                    menus = mdao.getListarMenu();
+                    despachar = getServletContext().getRequestDispatcher("/listarMenu.jsp");
+                    request.setAttribute("menus", menus);
+                    despachar.forward(request, response);  
+                }else{
+                    message = "Usuário não autirizado!";
+                }                    
               
             //Alterar
             }else if(acao.equals("alterar")){
-                menu = mdao.getCarregarMenu(Integer.parseInt(idMenu));
-                if(menu.getIdMenu() > 0){
-                    request.setAttribute("menu", menu);
-                    exibirMessge(request, response);
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    menu = mdao.getCarregarMenu(Integer.parseInt(idMenu));
+                    if(menu.getIdMenu() > 0){
+                        request.setAttribute("menu", menu);
+                        exibirMessge(request, response);
+                    }else{
+                        message = "Menu não encontrado!";                    
+                    } 
                 }else{
-                    message = "Menu não encontrado!";                    
+                    message = "Usuário não autirizado!";
                 }
-            
-            //Ativar    
-            }else if(acao.equals("ativar")){     
-                menu.setIdMenu(Integer.parseInt(idMenu));
-                if(mdao.ativarMenu(menu)){
-                    message = "Menu ativado!";     
-                    response.sendRedirect("gerenciarMenu?acao=listar");
-                }else{
-                    message = "Falha ao ativa menu!";                }   
+                      
                 
+            //Ativar    
+            }else if(acao.equals("ativar")){  
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    menu.setIdMenu(Integer.parseInt(idMenu));
+                    if(mdao.ativarMenu(menu)){
+                        message = "Menu ativado!";     
+                        response.sendRedirect("gerenciarMenu?acao=listar");
+                    }else{
+                        message = "Falha ao ativa menu!";                
+                    }  
+                }else{
+                    message = "Usuário não autirizado!";
+                }
+                               
             //Desativar    
             }else if(acao.equals("desativar")){
-                menu.setIdMenu(Integer.parseInt(idMenu));
-                if(mdao.desativarMenu(menu)){
-                    message = "Menu desativado!";
-                    response.sendRedirect("gerenciarMenu?acao=listar");
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    menu.setIdMenu(Integer.parseInt(idMenu));
+                    if(mdao.desativarMenu(menu)){
+                        message = "Menu desativado!";
+                        response.sendRedirect("gerenciarMenu?acao=listar");                        
+                    }else{
+                        message = "Falha ao desativar o menu!";                    
+                    }   
                 }else{
-                    message = "Falha ao desativar o menu!";
-                    
-                }
-                
-                
+                    message = "Usuário não autirizado!";  
+                }                
             }else{
-                
+                response.sendRedirect("gerenciarMenu?acao=listar");
             }   
         } catch (SQLException erro) {
+            message = "Erro!:" +erro.getMessage();
+            erro.printStackTrace();
         }
+        
+        out.print(
+                "<script type='text/javascript'>"+                        
+                    "alert('"+ message +"');"+
+                    "location.href='gerenciarMenu?acao=listar';"+
+                "</script>"
+        ); 
     
     }
     

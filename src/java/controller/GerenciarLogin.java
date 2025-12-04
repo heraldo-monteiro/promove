@@ -30,7 +30,7 @@ public class GerenciarLogin extends HttpServlet {
         String acao = request.getParameter("acao");
         HttpSession  sessao = request.getSession();         
                       
-        if(sessao.getAttribute("usuarioLogado") != null){
+        if(sessao != null && sessao.getAttribute("usuarioLogado") != null){
             sessao.removeAttribute("usuarioLogado");
             sessao.invalidate();
             resposta.sendRedirect("login.jsp");                

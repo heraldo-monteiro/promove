@@ -16,8 +16,7 @@
 
 <header>       
     <nav id="menuBar" class="menu-bar">   
-        <ul> <!-- Lista de menus -->
-           
+        <ul> <!-- Lista de menus -->           
             <c:if test="${usuarioLogado != null && usuarioLogado.perfil != null}">
                 <c:forEach items="${usuarioLogado.perfil.menus}" var="menu">
                     <c:if test="${menu.exibir == 1}">
@@ -26,9 +25,9 @@
                         </li>                            
                     </c:if>
                 </c:forEach>
-            </c:if>                        
-         
-        </ul>        
+            </c:if> 
+        </ul>  
+        
         <c:choose>
             <c:when test="${usuarioLogado != null}">
                 <div class="logout">

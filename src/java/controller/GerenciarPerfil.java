@@ -38,16 +38,21 @@ public class GerenciarPerfil extends HttpServlet {
         perfil = new Perfil();
         
         try {
-            if(acao.equals("listar")){                     
-                    ArrayList<Perfil> perfis = new ArrayList<>();
-                    perfis = pdao.getListarPerfil();
-                    
+            // Listar
+            if(acao.equals("listar")){               
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    ArrayList<Perfil> perfis = new ArrayList<>();                    
+                    perfis = pdao.getListarPerfil();                    
                     dispatcher = getServletContext().getRequestDispatcher("/listarPerfil.jsp");
                     request.setAttribute("perfis", perfis);
                     dispatcher.forward(request, response);
-                        
+                }else{
+                    mensagem = "Acesso não altorizado!";
+                }      
+            // Alterar
             }else if(acao.equals("alterar")){
-                perfil = pdao.getCarregarPerfil(Integer.parseInt(idPerfil));                 
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    perfil = pdao.getCarregarPerfil(Integer.parseInt(idPerfil));                 
                     if(perfil.getIdPerfil() > 0){
                         dispatcher = 
                             getServletContext().
@@ -56,23 +61,37 @@ public class GerenciarPerfil extends HttpServlet {
                         dispatcher.forward(request, response);  
                     }else{
                         mensagem = "Perfil não encontrado na base de dados!";
-                    }                
+                    }      
+                }else{
+                                     
+                }
+            //Ativar                   
             }else if(acao.equals("ativar")){
-                  perfil.setIdPerfil(Integer.parseInt(idPerfil));
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    perfil.setIdPerfil(Integer.parseInt(idPerfil));
                     if(pdao.ativarPerfil(perfil)){
                         mensagem = "Perfil ativado com sucesso! ";                    
                     }else{
                         mensagem = "Falha ao ativar o Perfil!";
-                    } 
-                    
+                    }   
+                }else{
+                    mensagem = "Acesso não altorizado!";  
+                }
+                  
+            //Desativar       
             }else if(acao.equals("desativar")){
-                perfil.setIdPerfil(Integer.parseInt(idPerfil));
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    perfil.setIdPerfil(Integer.parseInt(idPerfil));
                     if(pdao.desativarPerfil(perfil)){
                         mensagem = "Perfil Desativado com sucesso!";
                     }else{
                         mensagem = "Falha ao desativar o Perfil";
-                    }                 
-            } else{                
+                    }   
+                }else{
+                    mensagem = "Acesso não altorizado!";
+                }             
+            } 
+            else{                
                 response.sendRedirect("index.jsp"); 
             }          
                     
@@ -83,10 +102,11 @@ public class GerenciarPerfil extends HttpServlet {
         }
         
         out.println(
-                "<script type='text/javascript'>"+
-                    "alert('" + mensagem + "');"+
-                    "location.href='gerenciarPerfil?acao=listar';"+
-                "</script>");      
+            "<script type='text/javascript'>"+
+                "alert('" + mensagem + "');"+
+                "location.href='gerenciarPerfil?acao=listar';"+
+            "</script>"
+        );      
     }
     
     //==========================================================================
@@ -125,14 +145,14 @@ public class GerenciarPerfil extends HttpServlet {
             perfil.setStatus(Integer.parseInt(status));
         }        
     
-    //--------------------------------------------------------------------------
+    //-- CADASTRO DE PERFIL ----------------------------------------------------
+    //--------------------------------------------------------------------------  
         try {
             if(pdao.registrarPerfil(perfil)){
                 mensagem = "Atualização concluida com sucesso!";                
             }else{
                 mensagem = "Erro!: Falha ao atualizar o Perfil!";
-            }           
-            
+            }  
         } catch (SQLException erro) {
             mensagem = "Erro!: "+erro.getMessage();
             erro.printStackTrace();

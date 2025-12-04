@@ -11,7 +11,7 @@
             } 
         }                                    
         function confirmAtivar(id, nome){
-            if(confirm('Deseja ativar o menu (' +nome+ ')?')){
+            if(confirm('Deseja ativar o menu (' +nome+ ')? ')){
             location.href="gerenciarMenu?acao=ativar&idMenu="+id;                                            
             }                                        
         }                                    

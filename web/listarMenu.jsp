@@ -67,20 +67,24 @@
                                     <td> 
                                         <c:choose> 
                                             <c:when test="${menu.exibir == 1}">
-                                                Sim
+                                                <div>
+                                                    <img src="icons/icon_ativo.svg" class="icon">
+                                                </div>
                                             </c:when>
                                             <c:otherwise>
-                                                Não
+                                                <div>
+                                                    <img src="icons/icon_inativo.svg" class="icon">
+                                                </div>
                                             </c:otherwise>
                                         </c:choose>
                                     </td>                                     
                                     <td> 
                                         <c:choose>
                                             <c:when test="${menu.status == 1}">
-                                                Ativado                                                
+                                                <div class="btn btn-success btn-sm">Ativado</div>                                                  
                                             </c:when>
                                             <c:otherwise>
-                                                Desativado
+                                                <div class="btn btn-danger btn-sm">Desativado</div> 
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 
