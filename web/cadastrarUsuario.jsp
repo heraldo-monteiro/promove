@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
         <!-- CSS -->
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">      

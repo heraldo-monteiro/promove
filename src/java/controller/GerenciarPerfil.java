@@ -97,8 +97,7 @@ public class GerenciarPerfil extends HttpServlet {
                     
         } catch (SQLException erro) {    
             mensagem = "Erro: " + erro.getMessage();
-            erro.printStackTrace(); // mostra por onde o erro possa ter se propagado!
-                  
+            erro.printStackTrace(); // mostra por onde o erro possa ter se propagado!                  
         }
         
         out.println(

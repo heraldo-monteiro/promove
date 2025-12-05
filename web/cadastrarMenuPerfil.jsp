@@ -13,11 +13,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">              
+        
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
-        <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css">         
         <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">  
+        <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">   <!-- Style da Tabela JQuary -->
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css"> 
         <title> Promone </title>
@@ -119,7 +121,7 @@
             $(document).ready(function () {
                 $('#tableMenuPerfil').dataTable({
                     columnDefs: [
-                        //{ width: '20px',  targets: 0 }, // Código                     
+                      //{ width: '0px',  targets: 0 }, // Código                     
                      ],
                     autoWidth: false,
                     
@@ -132,7 +134,7 @@
                      
                     "ordering": false,  
                     "bJQueryUI": true,
-                    "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "Todos"]],
+                    "lengthMenu": [[20, 30, -1], [20, 30, "Todos"]],
                     "oLanguage": {
                         "sProcessing": "Processando",
                         "sLengthMenu": "Mostrar _MENU_ registros",

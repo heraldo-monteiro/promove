@@ -12,7 +12,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">    
         <!-- CSS  --------------------------------------------------------   -->
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">       
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
@@ -81,10 +82,10 @@
                                     <td> 
                                         <c:choose>
                                             <c:when test="${menu.status == 1}">
-                                                <div class="btn btn-success btn-sm">Ativado</div>                                                  
+                                                <div class="status-on status">Ativo</div>                                                  
                                             </c:when>
                                             <c:otherwise>
-                                                <div class="btn btn-danger btn-sm">Desativado</div> 
+                                                <div class="status-off status">Inativo</div> 
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 
@@ -148,10 +149,10 @@
                     */ 
                     "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
                     "bJQueryUI": true,
-                    "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "Todos"]],
+                    "lengthMenu": [[20, 25, -1], [20, 25, "Todos"]],
                     "oLanguage": {
                         "sProcessing": "Processando",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
+                      "sLengthMenu": "Mostrar _MENU_ registros",
                         "sZeroRecords": "Não foram encontrados resultados",
                         "sInfo": "Mostrando _END_ de _TOTAL_ registros",
                         "sInfoEmpty": "Mostrando 0 de 0 registros",

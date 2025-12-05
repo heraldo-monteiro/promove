@@ -34,7 +34,10 @@ public class MenuDao {
                 link = link.replace("gerenciar", "gerenciar ")  // Atualiza o Treho "gerenciar" para "Gerenciar"               
                 .replace("?acao", "")          // remove apenas "?acao"
                 .replace("=", "")              // remove o "="
-                .replace("listar", "")         // remove apenas "listar"                        
+                .replace("listar", "")         // remove apenas "listar"    
+                .replace("alterar", "")        // remove apenas "alterar"
+                .replace("ativar", "")         // remove apenas "ativar"   
+                .replace("des", "")            // remove apenas "desativar"   
                 .trim();                       // remove espaços extras
             }
             menu.setLink(link);

@@ -9,12 +9,14 @@
             if(confirm('Deseja desativar  o Menu ' +
                     nome + '?')){
                 location.href="gerenciarMenu?acao=desativar&idMenu="+id;
+                setTimeout(() => location.reload(), 500);
             } 
         }                                    
         function confirmAtivar(id, nome){
             if(confirm('Deseja Ativar o Menu ' +
                 nome+ '?')){
-            location.href="gerenciarMenu?acao=ativar&idMenu="+id;                                            
+            location.href="gerenciarMenu?acao=ativar&idMenu="+id;      
+            setTimeout(() => location.reload(), 500);
             }                                        
         }                                    
     </script>     
