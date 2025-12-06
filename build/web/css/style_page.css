@@ -3,10 +3,12 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;     
+    box-sizing: border-box;    
+    
 }
-body{  
+html, body{  
     margin: 0 auto;
+    height: 100%;
     background: grey;
     font-family: Helveti, arial, sans-serif;
     line-height: 1.4em;
@@ -14,7 +16,7 @@ body{
     text-align: left;
     clear: both;   
     transform: scale(1); 
-    transform-origin: 0 0 ;
+    transform-origin: 0 0 ;    
 }
 /*============================================================================*/
 #container{    
@@ -28,7 +30,7 @@ body{
     background: grey; 
     margin-top: 10px;   
     width: 100%;  
-    height: 90vh;
+    height: 100%;
 }
 .container {  
   display: flex;

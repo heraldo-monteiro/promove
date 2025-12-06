@@ -57,8 +57,7 @@ public class GerenciarMenu extends HttpServlet {
                     } 
                 }else{
                     message = "Usuário não autirizado!";
-                }
-                      
+                }                      
                 
             //Ativar    
             }else if(acao.equals("ativar")){  

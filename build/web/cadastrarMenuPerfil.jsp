@@ -90,10 +90,14 @@
                                         <td> ${menu.link}</td>                                        
                                         <td> 
                                             <c:if test="${menu.exibir == 1}">
-                                                Sim
+                                                 <div>
+                                                    <img src="icons/icon_ativo.svg" class="icon">
+                                                </div>
                                             </c:if>
                                             <c:if test="${menu.exibir == 0}">
-                                                Não
+                                                <div>
+                                                    <img src="icons/icon_inativo.svg" class="icon">
+                                                </div>
                                             </c:if>
                                         </td>     
                                         

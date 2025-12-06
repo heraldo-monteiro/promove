@@ -55,14 +55,24 @@ public class GerenciarUsuario extends HttpServlet {
                     exibirMensage(request, response);
                 }else{
                     message = "Usuário não encontrado!";
+                }     
+            //Ativar
+            }else if(acao.equals("ativar")){
+                usuario.setIdUsuario(Integer.parseInt(idUsuario));
+                if(udao.ativarUsuario(usuario)){
+                    response.sendRedirect("gerenciarUsuario?acao=listar");
+                }else{
+                    message = "Falha ao ativar o Usuário!";
                 }
                 
-            }else if(acao.equals("ativar")){
-                
-                
+            //Desativar
             }else if(acao.equals("desativar")){
-                
-                
+                usuario.setIdUsuario(Integer.parseInt(idUsuario));
+                if(udao.desativarUsuario(usuario)){
+                     response.sendRedirect("gerenciarUsuario?acao=listar");
+                }else{
+                    message = "Falha ao Desativar o Usuário!";
+                }                
             }else{
                 response.sendRedirect("index.jsp");
             }
@@ -72,14 +82,14 @@ public class GerenciarUsuario extends HttpServlet {
             message = "Erro!"+erro.getMessage();
             erro.printStackTrace();
         }
-                
+           /*     
         out.print(
             "<script type='text/javascript'>"+
                 "alert('"+message+"');"+
                 "location.href='gerenciarUsuario?acao=listar';"+
             "</script>"
         ); 
-       
+       */
     }    
     
     @Override

@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">        
-        
         <title>Promove</title>
     </head>
     <body>
@@ -149,7 +148,7 @@
                     */ 
                     "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
                     "bJQueryUI": true,
-                    "lengthMenu": [[20, 25, -1], [20, 25, "Todos"]],
+                    "lengthMenu": [[10,30,50, -1], [10,30,50, "Todos"]],
                     "oLanguage": {
                         "sProcessing": "Processando",
                       "sLengthMenu": "Mostrar _MENU_ registros",

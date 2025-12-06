@@ -17,6 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">      
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
         <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_button.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">                
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
@@ -75,10 +76,10 @@
                                     <td> 
                                         <c:choose>
                                             <c:when test="${usuario.status == 1}">
-                                             Ativo  
+                                                <div class="status-on status">Ativo</div> 
                                             </c:when>
                                             <c:otherwise>
-                                                Inativo
+                                                <div class="status-off status">Inativo</div> 
                                             </c:otherwise>
                                         </c:choose>
                                     </td>   
@@ -89,6 +90,7 @@
                                            role="button"> Atualizar </a>  
                                     </td> 
                                     <td class=""> 
+                                        <jsp:include page="scripts/ativar_desativar_usuario.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${usuario.status == 1}">
                                                 <button class="btn btn-danger btn-sm"
