@@ -98,17 +98,17 @@
                                     <td> 
                                         <jsp:include page="scripts/ativar_desativar_menu.jsp"></jsp:include>
                                         <c:choose>
-                                            <c:when test="${menu.status == 1}">
-                                                <button class="btn btn-danger btn-sm"
-                                                        onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
-                                                        Desativar
-                                                </button>                                                
+                                            <c:when test="${menu.status == 1}">                                            
+                                                    <button class="btn btn-danger btn-sm"
+                                                            onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
+                                                            Desativar
+                                                    </button>  
                                             </c:when>            
-                                            <c:otherwise>
-                                                <button class="btn btn-success btn-sm"
-                                                        onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
-                                                        Ativar
-                                                </button>
+                                            <c:otherwise>                                               
+                                                    <button class="btn btn-success btn-sm"
+                                                            onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
+                                                            Ativar
+                                                    </button>                                             
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 

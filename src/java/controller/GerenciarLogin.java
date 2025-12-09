@@ -48,27 +48,27 @@ public class GerenciarLogin extends HttpServlet {
         response.setCharacterEncoding("utf-8");               
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        String message = "";              
+        String message = "";      
+        String msg = "";;
+        
         usuario = new Usuario();
         udao = new UsuarioDao();
-        GerenciarLogin.resposta = response;
-        
+        GerenciarLogin.resposta = response;        
         
          // === Validação Login ===
         if(login.equals("") || login.isEmpty()){
-            request.setAttribute("msg", "Campo usuário ou senha invalido!");
+            request.setAttribute(msg, "Usuário ou senha invalido!");
             request.setAttribute("loginDigitado", login);
             despachar = request.getRequestDispatcher("login.jsp");      // Teste
             despachar.forward(request, response);                       // Teste
-            return; // Teste            
-           
+            return; // Teste 
         }else{
             usuario.setLogin(login);
         }
         
         // === Validação Senha ===
         if(senha.equals("") || senha.isEmpty()){
-            request.setAttribute("msg", "Campo usuário ou senha invalido!");
+            request.setAttribute(msg, "Campo usuário ou senha invalido!");
             request.setAttribute("loginDigitado", login);
             despachar = request.getRequestDispatcher("login.jsp");      // Teste
             despachar.forward(request, response);                       // Teste
@@ -87,10 +87,10 @@ public class GerenciarLogin extends HttpServlet {
                 response.sendRedirect("index.jsp");                
             }else{
                 // Usuário ou senha inválido
-                request.setAttribute("msg", "Usuário ou senha inválido!");// Teste
-                request.setAttribute("loginDigitado", login);           // Teste
-                despachar = request.getRequestDispatcher("login.jsp");  // Teste
-                despachar.forward(request, response);                  // Teste
+                request.setAttribute("msg", "Usuário ou senha inválido!");  // Teste
+                request.setAttribute("loginDigitado", login);               // Teste
+                despachar = request.getRequestDispatcher("login.jsp");      // Teste
+                despachar.forward(request, response);                       // Teste
             }
         } catch (SQLException erro) {
             // Erro no banco de dados

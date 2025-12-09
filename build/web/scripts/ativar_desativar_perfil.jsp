@@ -6,17 +6,13 @@
 
     <script type="text/javascript">
         function confirmDesativar(id, nome){
-            if(confirm('Deseja desativar  o Menu ' +
-                    nome + '?')){
-                location.href="gerenciarMenu?acao=desativar&idMenu="+id;
-                setTimeout(() => location.reload(), 500);
+            if(confirm('Deseja desativar  o Perfil ' +nome + '?')){
+                location.href="gerenciarPerfil?acao=desativar&idPerfil="+id;      
             } 
         }                                    
         function confirmAtivar(id, nome){
-            if(confirm('Deseja Ativar o Menu ' +
-                nome+ '?')){
-            location.href="gerenciarMenu?acao=ativar&idMenu="+id;      
-            setTimeout(() => location.reload(), 500);
+            if(confirm('Deseja Ativar o Perfil ' +nome+ '?')){
+            location.href="gerenciarPerfil?acao=ativar&idPerfil="+id;     
             }                                        
         }                                    
     </script>     

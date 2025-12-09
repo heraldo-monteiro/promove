@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
         <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">           
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
@@ -68,10 +69,10 @@
                                     <td>
                                         <c:choose>
                                             <c:when test="${perfil.status == 1}">
-                                                 <button class="btn btn-success btn-sm">Ativo</button>                                                
+                                                <div class="status-on status">Ativo</div>                                                
                                             </c:when>
                                             <c:otherwise>
-                                                <button class="btn btn-danger btn-sm">Inativo</button> 
+                                                <div class="status-off status">Inativo</div> 
                                             </c:otherwise>
                                         </c:choose>                                         
                                     </td>    
@@ -82,6 +83,8 @@
                                            role="button"> Aritalizar
                                         </a>  
                                     </td>
+                                    
+                                    
                                     
                                     <td> 
                                         <a href="gerenciarMenuPerfil?acao=vincular&idPerfil=${perfil.idPerfil}"

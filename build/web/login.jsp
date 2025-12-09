@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
         <link rel="stylesheet" href="css/style_login.css" type="text/css">        
-        <link rel="stylesheet" href="css/style-alert-box.css" type="text/css">        
+        <link rel="stylesheet" href="css/style_alert-box.css" type="text/css">        
         <title> Promove </title>
     </head>
     <body>
@@ -22,11 +22,9 @@
                     <h1>Login</h1>                    
                 </div>
 
-                <!-- Inclui mensagem de alerta -->
-                <jsp:include page="scripts/alert_login.jsp"></jsp:include>
+                
 
                 <div id="input">
-
                     <!-- Campo Usuário -->
                     <div class="input-box">
                         <label for="name">Usuário</label>
@@ -37,7 +35,7 @@
                                 id="name"
                                 name="login"
                                 placeholder="Digite seu usuário"
-                                value="${loginDigitado != null ? loginDigitado : ''}"
+                                value="${loginDigitado}"
                                 required
                             >
                         </div>
@@ -63,11 +61,13 @@
                 <button type="submit" id="login-button">
                     Login
                 </button>
-
+                <!-- Inclui mensagem de alerta -->
+                <jsp:include page="scripts/alert_login.jsp"></jsp:include>
+                
                 <div id="forgot_password">
                     <a href="#">Esqueceu sua senha?</a>
                 </div>
-
+                
             </form>              
         </main>         
     </body>

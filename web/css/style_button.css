@@ -1,11 +1,12 @@
 /*============================================================================*/
-/*Paginas de Listagens*/
 .status{
     display: flex;
     width: 72px;
+    height: 30px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;    
+    cursor: default;
 }
 .status-on{
     background-color: green;   
@@ -16,6 +17,9 @@
 .icon{
     width: 32px;
     height: 32px;
+}
+.btn{
+    width: 83px;    
 }
 
 /*============================================================================*/

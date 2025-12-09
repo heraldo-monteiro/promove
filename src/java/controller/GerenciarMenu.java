@@ -63,8 +63,7 @@ public class GerenciarMenu extends HttpServlet {
             }else if(acao.equals("ativar")){  
                 if(GerenciarLogin.verificarPermissao(request, response)){
                     menu.setIdMenu(Integer.parseInt(idMenu));
-                    if(mdao.ativarMenu(menu)){
-                        message = "Menu ativado!";     
+                    if(mdao.ativarMenu(menu)){                      
                         response.sendRedirect("gerenciarMenu?acao=listar");
                     }else{
                         message = "Falha ao ativa menu!";                
@@ -77,8 +76,7 @@ public class GerenciarMenu extends HttpServlet {
             }else if(acao.equals("desativar")){
                 if(GerenciarLogin.verificarPermissao(request, response)){
                     menu.setIdMenu(Integer.parseInt(idMenu));
-                    if(mdao.desativarMenu(menu)){
-                        message = "Menu desativado!";
+                    if(mdao.desativarMenu(menu)){                       
                         response.sendRedirect("gerenciarMenu?acao=listar");                        
                     }else{
                         message = "Falha ao desativar o menu!";                    

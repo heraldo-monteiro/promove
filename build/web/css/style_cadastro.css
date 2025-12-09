@@ -9,8 +9,7 @@ form {
     position: relative;
     max-width: 320px;
     min-width: 430px;
-    min-height: 495px;    
-
+    min-height: 495px;   
 }
 
 /* ===== Campos ==============================================================*/
@@ -34,12 +33,10 @@ hr{
 
 input {
     border-radius: 10px;
+    padding-left: 10px;
 }
 .nome input, .link input, .login input, .senha input{
     width: 100%;
-    max-width: 320px;
-}
-.menu{
     max-width: 320px;
 }
 input[type="checkbox"] {    

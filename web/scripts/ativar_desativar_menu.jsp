@@ -5,16 +5,10 @@
 --%>
 
    <script type="text/javascript">
-        function confirmDesativar(id, nome){
-            if(confirm('Deseja desativar o menu (' +nome+ ')?')){
-                location.href="gerenciarMenu?acao=desativar&idMenu="+id;
-                setTimeout(() => location.reload(), 500);
-            } 
+        function confirmDesativar(id){        
+            location.href="gerenciarMenu?acao=desativar&idMenu="+id;
         }                                    
-        function confirmAtivar(id, nome){
-            if(confirm('Deseja ativar o menu (' +nome+ ')? ')){
-            location.href="gerenciarMenu?acao=ativar&idMenu="+id;    
-            setTimeout(() => location.reload(), 500);
-            }                                        
+        function confirmAtivar(id){           
+            location.href="gerenciarMenu?acao=ativar&idMenu="+id;              
         }                                    
     </script>   

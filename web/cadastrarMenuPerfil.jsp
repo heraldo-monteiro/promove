@@ -43,25 +43,27 @@
                             
                             <!-- Container Nome | Menu -->
                             <div class="nome-menu">    
-                                 <div class="campo nome">  
-                                     <label>Nome:</label> 
-                                     <input type="text" class="input-nome"
-                                            name="nome"                                                                     
-                                            value="${vincularP.nome}"
-                                            readonly                                           
-                                     />
-                                 </div> 
+                                <div class="campo nome">  
+                                    <label>Nome:</label> 
+                                    <input type="text" class="input-nome"
+                                           name="nome"                                                                     
+                                           value="${vincularP.nome}"
+                                           readonly                                           
+                                    />
+                                </div> 
 
-                                 <!-- Menus Desvinculados -->
-                                 <div class="campo menu">  
-                                     <label>Menu:</label> 
-                                     <select name="idMenu" class="select-menu">
-                                         <option value="">Menus Desvinculados</option>
-                                         <c:forEach items="${vincularP.naoMenus}" var="menu">
-                                             <option value="${menu.idMenu}">${menu.nome}</option>                                        
-                                         </c:forEach>
-                                     </select>                        
-                                 </div>
+                                <!-- Menus Desvinculados -->
+                                <div class="campo menu">  
+                                    <label>Menu:</label> 
+                                    <select name="idMenu" class="select-menu">
+                                        <option value="">Menus Desvinculados</option>
+                                        <c:forEach items="${vincularP.naoMenus}" var="menu">
+                                            <c:if test="${menu.status == 1}">
+                                                <option value="${menu.idMenu}">${menu.nome}</option>  
+                                            </c:if>                              
+                                        </c:forEach>
+                                    </select>                        
+                                </div>
                             </div>
                                             
                             <!-- Button Vincular | Listar Perfil -->   
