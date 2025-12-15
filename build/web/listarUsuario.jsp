@@ -19,7 +19,8 @@
         <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_button.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
-        <link rel="stylesheet" href="css/style_footer.css" type="text/css">                
+        <link rel="stylesheet" href="css/style_footer.css" type="text/css">    
+        
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">
@@ -89,20 +90,20 @@
                                            class="btn btn-warning btn-sm"
                                            role="button"> Atualizar </a>  
                                     </td> 
-                                    <td class=""> 
+                                    <td class="acoes-btn"> 
                                         <jsp:include page="scripts/ativar_desativar_usuario.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${usuario.status == 1}">
-                                                <button class="btn btn-danger btn-sm"
+                                                <div class="btn btn-danger btn-sm btn-acao"
                                                         onclick="confirmDesativar('${usuario.idUsuario}', '${usuario.nome}')">
                                                         Desativar
-                                                </button>                                                
+                                                </div>                                                
                                             </c:when>            
                                             <c:otherwise>
-                                                <button class="btn btn-success btn-sm"
+                                                <div class="btn btn-success btn-sm btn-acao"
                                                         onclick="confirmAtivar('${usuario.idUsuario}', '${usuario.nome}')">
                                                         Ativar
-                                                </button>
+                                                </div>
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 

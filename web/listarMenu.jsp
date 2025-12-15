@@ -99,16 +99,16 @@
                                         <jsp:include page="scripts/ativar_desativar_menu.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${menu.status == 1}">                                            
-                                                    <button class="btn btn-danger btn-sm"
+                                                    <div class="btn btn-danger btn-sm"
                                                             onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
                                                             Desativar
-                                                    </button>  
+                                                    </div>  
                                             </c:when>            
                                             <c:otherwise>                                               
-                                                    <button class="btn btn-success btn-sm"
+                                                    <div class="btn btn-success btn-sm"
                                                             onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
                                                             Ativar
-                                                    </button>                                             
+                                                    </div>                                             
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 
@@ -148,7 +148,7 @@
                     */ 
                     "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
                     "bJQueryUI": true,
-                    "lengthMenu": [[10,30,50, -1], [10,30,50, "Todos"]],
+                    "lengthMenu": [[10,25,50,100 , -1], [10,25,50,100, "Todos"]],
                     "oLanguage": {
                         "sProcessing": "Processando",
                       "sLengthMenu": "Mostrar _MENU_ registros",

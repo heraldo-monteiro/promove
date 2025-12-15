@@ -31,13 +31,14 @@ public class MenuDao {
             menu.setStatus(rs.getInt("status"));            
 
             if (link != null) {
-                link = link.replace("gerenciar", "gerenciar ")  // Atualiza o Treho "gerenciar" para "Gerenciar"               
+                link = link.replace("gerenciar", "gerenciar ")  // Atualiza o Treho "gerenciar" para "gerenciar"               
                 .replace("?acao", "")          // remove apenas "?acao"
                 .replace("=", "")              // remove o "="
-                .replace("listar", "")         // remove apenas "listar"    
-                .replace("alterar", "")        // remove apenas "alterar"
-                .replace("ativar", "")         // remove apenas "ativar"   
-                .replace("des", "")            // remove apenas "desativar"   
+                .replace("listar", "")         // remove o "listar"    
+                .replace("alterar", "")        // remove o "alterar"
+                .replace("ativar", "")         // remove o "ativar"   
+                .replace("des", "")            // remove o "des"   
+                .replace(".jsp", "")           // remove o ".jsp" 
                 .trim();                       // remove espaços extras
             }
             menu.setLink(link);

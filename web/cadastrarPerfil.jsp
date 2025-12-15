@@ -87,6 +87,7 @@
                                 <div class="btn-salvar">
                                    <button> Salvar </button>  
                                 </div> 
+                                
                                 <div class="btn-cancelar">
                                    <a href="gerenciarPerfil?acao=listar"                                       
                                   accesskey="" role="button"> Cancelar </a>

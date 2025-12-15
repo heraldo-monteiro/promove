@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.SendResult;
 import model.Menu;
 import model.Usuario;
 import persistence.UsuarioDao;
-
 
 @WebServlet(name = "GerenciarLogin", urlPatterns = {"/gerenciarLogin"})
 public class GerenciarLogin extends HttpServlet {    
@@ -35,8 +33,7 @@ public class GerenciarLogin extends HttpServlet {
             sessao.invalidate();
             resposta.sendRedirect("login.jsp");                
         }else{
-            resposta.sendRedirect("index.jsp");      
-            
+            resposta.sendRedirect("index.jsp");                  
         }
     }
     
@@ -100,8 +97,7 @@ public class GerenciarLogin extends HttpServlet {
             despachar.forward(request, response);                       // Teste
             erro.printStackTrace(); 
         }              
-    }
-         
+    }         
 
     //==========================================================================
     public static Usuario verificarAcesso( HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{

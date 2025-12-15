@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">  
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
+        
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">   <!-- Style da Tabela JQuary -->
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css"> 
         <title> Promone </title>
@@ -34,8 +35,7 @@
             </div>
             
             <div id="conteudo">
-                <div class="container"> 
-                    
+                <div class="container">                     
                     <div class="form-table">
                         <form action="gerenciarMenuPerfil" method="POST" class="form" style="min-width: 100%;  min-height: 100px">                                             
                             <input type="hidden" name="idPerfil" value="${vincularP.idPerfil}" />
@@ -43,7 +43,7 @@
                             
                             <!-- Container Nome | Menu -->
                             <div class="nome-menu">    
-                                <div class="campo nome">  
+                                <div class="campo nome.">  
                                     <label>Nome:</label> 
                                     <input type="text" class="input-nome"
                                            name="nome"                                                                     
@@ -105,10 +105,10 @@
                                         
                                         <td> 
                                             <jsp:include page="scripts/alert_desvincular_menu.jsp"></jsp:include>
-                                            <button class="btn btn-danger btn-sm"
+                                            <div class="btn btn-danger btn-sm"
                                                     onclick="desvincular_Menu('${menu.idMenu}', '${menu.nome}', '${vincularP.idPerfil}')">
                                                     Desvincular    
-                                            </button>
+                                            </div>
                                         </td>  
                                     </tr>
                                     </c:forEach>                              

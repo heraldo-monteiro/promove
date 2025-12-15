@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_menu_home.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">         
         <link rel="stylesheet" href="css/msg_erro.css" type="text/css">         
         <!-- JQuary | Bootstrap -->

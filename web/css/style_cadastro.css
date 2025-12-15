@@ -1,12 +1,12 @@
-form {     
-    margin: 10px;
+form {  
+    margin: 10px;    
+    background-color: rgb(143,133,0);  
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    background-color: rgb(143,133,0);  
+    padding: 10px;    
     border-radius: 10px;
-    position: relative;
+    position: relative;    
     max-width: 320px;
     min-width: 430px;
     min-height: 495px;   
@@ -17,7 +17,6 @@ form {
     min-width: 300px;
     margin-top: 0;
 }
-
 .agrupamento-nenu-status,
 .agrupamento-perfil-status {
     display: flex;
@@ -39,12 +38,17 @@ input {
     width: 100%;
     max-width: 320px;
 }
+.select-menu, .input-nome{
+  max-width: 320px;  
+}
+    
 input[type="checkbox"] {    
     width: 18px;    
     height: 18px;
     cursor: pointer;
 }
-/*===== Botões ==============================================================*/
+
+/*===== Botões dos Formularios de cadastro ===================================*/
 /* os botões ficam fixos na base do form e alinhados */
 .btn-form {   
    position: absolute;
@@ -89,8 +93,9 @@ input[type="checkbox"] {
     text-decoration: none;
 }
 
+/*===== Pagina cadastro.jsp ==================================================*/
+/* Cadastro de novos usuários */
 
-/*===== Pagina cadastro.jsp ==============================================================*/
 .cadastro-usuario{
     border: 2px solid darkolivegreen;   
     min-height: 390px;    
@@ -107,3 +112,4 @@ input[type="checkbox"] {
 .btn-cadastrar button:hover {
     background-color: #598b2c;  
 }
+

@@ -13,17 +13,15 @@
 
 /* layout dos itens  da barra de menu*/
 .menu-bar ul { 
-  margin: 0;
+  margin: 0px;
   padding: 10px 0;
   display: flex;
   list-style: none;  
   justify-content: flex-start; /* alinha os itens a margem esquerda */
   align-items: center;
-
 }
-
 .menu-bar li { 
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 .menu-bar a {
@@ -44,36 +42,11 @@
   display: flex;              /* coloca os dois na mesma linha */
   align-items: center;        /* alinha verticalmente */
   gap: 15px;                  /* espaço entre o nome e o botão */
+  
   font-family: Arial, sans-serif;
 }
 h6{
     width: 920px;
+    margin: 0 10px;
 }
-
-/*============================================================================*/
-/* Botão de sair  Menu User*/
-.logout{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px;
-}
-.btnLogout{    
-    display: flex; 
-    justify-content: center;
-    width: 60px;
-    border-radius: 10px;
-    border: 1px #780000 solid;
-    color: #780000;
-    text-decoration:  none;
-    font-weight: 300;
-    transition: background 0.2s; 
-    letter-spacing: 1px;
-}
-.btnLogout:hover{
-    background:  darkred;
-    color: window;
-}
-
-
 

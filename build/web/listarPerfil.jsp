@@ -82,10 +82,7 @@
                                            class="btn btn-warning btn-sm"
                                            role="button"> Aritalizar
                                         </a>  
-                                    </td>
-                                    
-                                    
-                                    
+                                    </td>   
                                     <td> 
                                         <a href="gerenciarMenuPerfil?acao=vincular&idPerfil=${perfil.idPerfil}"
                                            class="btn btn-secondary btn-sm"
