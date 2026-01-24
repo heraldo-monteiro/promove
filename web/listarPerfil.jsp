@@ -122,22 +122,22 @@
                      
                     "ordering": false,  
                     "bJQueryUI": true,
-                    "lengthMenu": [[20, 30, -1], [20, 30, "Todos"]],
+                    "lengthMenu": [[-1], [""]],
                     "oLanguage": {
                         "sProcessing": "Processando",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sLengthMenu": "",
                         "sZeroRecords": "Não foram encontrados resultados",
-                        "sInfo": "Mostrando _END_ de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrado 0 de 0 registros",
+                        "sInfo": "Total de registros: _TOTAL_",
+                        "sInfoEmpty": "",
                         "sInfoFiltered": "",
                         "sInfoPostFix": "",
                         "sSearch": "Pesquisar",
                         "sUrl": "",
                         "oPaginate": {
-                            "sFirst": "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext": "Próximo",
-                            "sLast": "Último"
+                            "sFirst": "",
+                            "sPrevious": "",
+                            "sNext": "",
+                            "sLast": ""
                         }
                     }
                 });

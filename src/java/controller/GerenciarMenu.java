@@ -97,8 +97,7 @@ public class GerenciarMenu extends HttpServlet {
                     "alert('"+ message +"');"+
                     "location.href='gerenciarMenu?acao=listar';"+
                 "</script>"
-        ); 
-    
+        );  
     }
     
 //==============================================================================

@@ -27,24 +27,25 @@
 /* Botão de sair  Menu User*/
 .logout{
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px;
+    justify-content: flex-end;   
+    width: 100%;    
+    padding: 10px; 
 }
 .btnLogout{    
     display: flex; 
     justify-content: center;
+    align-items: center;
     width: 60px;
-    border-radius: 10px;
-    border: 1px #780000 solid;
-    color: #780000;
+    height: 30px;
+  
     text-decoration:  none;
     font-weight: 300;
     transition: background 0.2s; 
     letter-spacing: 1px;
+    background: #9b2226;
+    
 }
-.btnLogout:hover{
-    background:  darkred;
-    color: window;
+.btnLogout:hover{  
+    text-decoration:  none;
 }
 

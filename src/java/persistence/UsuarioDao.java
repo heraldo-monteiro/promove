@@ -100,8 +100,7 @@ public class UsuarioDao {
             usuario.setPerfil(pdao.getCarregarPerfil(rs.getInt("u.idPerfil")));           
         }
         ConexaoFactory.close(conexao);
-        return usuario;         
-                      
+        return usuario;  
     }
     
     //==========================================================================

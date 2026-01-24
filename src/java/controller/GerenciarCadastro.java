@@ -108,8 +108,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         perfil.setIdPerfil(Integer.parseInt(idPerfil));
         usuario.setPerfil(perfil);
     }
-
-   
+    
     String message;
     try {
         if (udao.registrarUsuario(usuario)) {

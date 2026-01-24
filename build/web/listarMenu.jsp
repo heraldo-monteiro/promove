@@ -10,12 +10,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">    
-        <!-- CSS  --------------------------------------------------------   -->
+      
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
         <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
-        <link rel="stylesheet" href="css/style_footer.css" type="text/css">       
+        <link rel="stylesheet" href="css/style_footer.css" type="text/css">   
+        
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">        
@@ -126,19 +127,9 @@
                         
         <script>
             $(document).ready(function () {                  
-                $('#listarMenu').dataTable({
-                    columnDefs: [
-                        { width: '0px',  targets: 0 }, // Código
-                        { width: '60px', targets: 1 }, // Nome
-                        { width: '190px', targets: 2 }, // Link
-                        { width: '60px', targets: 3 }, // Exibir
-                        { width: '60px', targets: 4 }, // Status
-                        { width: '0px', targets: 5 }, // Gerenciar
-                        { width: '0px', targets: 6 }  // Ação
-                     ],
-                    autoWidth: false,
-                    
-                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
+                $('#listarMenu').dataTable({              
+                    autoWidth: false,                    
+                    //dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
                     /*  
                         l  =  lengthMenu
                         f  =  sSearch (pesquisa)           
@@ -148,22 +139,22 @@
                     */ 
                     "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
                     "bJQueryUI": true,
-                    "lengthMenu": [[10,25,50,100 , -1], [10,25,50,100, "Todos"]],
+                    "lengthMenu": [[-1], [""]],
                     "oLanguage": {
                         "sProcessing": "Processando",
-                      "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sLengthMenu": "",
                         "sZeroRecords": "Não foram encontrados resultados",
-                        "sInfo": "Mostrando _END_ de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrando 0 de 0 registros",
+                        "sInfo": "Total de registros: _TOTAL_",
+                        "sInfoEmpty": "",
                         "sInfoFiltered": "",
                         "sInfoPostFix": "",
                         "sSearch": "Pesquisar",
-                        "sUrl": "",
+                        "sUrl": "oi",
                         "oPaginate": {
-                            "sFirst": "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext": "Próximo",
-                            "sLast": "Último"
+                            "sFirst": "",
+                            "sPrevious": "",
+                            "sNext": "",
+                            "sLast": ""
                         }
                     }
                 });

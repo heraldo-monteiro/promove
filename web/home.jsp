@@ -58,8 +58,43 @@
                     Sinta-se à vontade, descubra nossos recursos e aproveite tudo o que preparamos para facilitar sua jornada.
                     <br>
                     Promove — promovendo conexões, promovendo resultados, promovendo você.
-                </div>                
+                </div>   
                 
+                <div class="container-card">   
+                        <div class="card">
+                            <div class="img-card">
+                                <img src="imagens/transferir.gif" class="img-view">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title"> nome do serviços</div>
+                                <div class="card-price"> preço</div>
+                                <button> Agendar</button>
+                            </div>
+                        </div> 
+                    
+                        <div class="card">
+                            <div class="img-card">
+                                <img src="imagens/transferir.gif" class="img-view">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title"> nome do serviços</div>
+                                <div class="card-price"> preço</div>
+                                <button> Agendar</button>
+                            </div>
+                        </div> 
+                    
+                        <div class="card">
+                            <div class="img-card">
+                                <img src="imagens/transferir.gif" class="img-view">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title"> nome do serviços</div>
+                                <div class="card-price"> preço</div>
+                                <button> Agendar</button>
+                            </div>
+                        </div>        
+                </div> <!-- Card Container-->
+                           
             </div> <!-- Id CONTEUDO --> 
             <div id="footer">                
                 <jsp:include page="template/footer.jsp"></jsp:include>
