@@ -40,7 +40,8 @@
                                 <div class="">
                                     <input type="text" class=""
                                         name="nome"
-                                        value="${usuario.nome}"        
+                                        value="${usuario.nome}"
+                                        required=""
                                     />                                    
                                 </div>                                
                             </div>
@@ -52,6 +53,7 @@
                                     <input type="text" class=""                                       
                                         name="login"
                                         value="${usuario.login}"
+                                        required=""
                                     />                                   
                                 </div>                                
                             </div>
@@ -63,6 +65,7 @@
                                     <input type="password" class=""
                                         name="senha"
                                         value="${usuario.senha}"
+                                        required=""
                                     />                                    
                                 </div>                                
                             </div>

@@ -26,14 +26,14 @@ public class GerenciarLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {    
         String acao = request.getParameter("acao");
-        HttpSession  sessao = request.getSession();         
+        HttpSession  sessao = request.getSession(false);         
                       
         if(sessao != null && sessao.getAttribute("usuarioLogado") != null){
             sessao.removeAttribute("usuarioLogado");
             sessao.invalidate();
-            resposta.sendRedirect("login.jsp");                
+            response.sendRedirect("login.jsp");                
         }else{
-            resposta.sendRedirect("index.jsp");                  
+            response.sendRedirect("login.jsp");                  
         }
     }
     
@@ -93,7 +93,7 @@ public class GerenciarLogin extends HttpServlet {
             // Erro no banco de dados
             request.setAttribute("msg", "Erro: "+erro.getMessage());    // Teste
             request.setAttribute("loginDigitado", login);               // Teste
-            despachar = request.getRequestDispatcher("login.jsp");      // Teste
+            despachar = request.getRequestDispatcher("home.jsp");      // Teste
             despachar.forward(request, response);                       // Teste
             erro.printStackTrace(); 
         }              
@@ -163,7 +163,7 @@ public class GerenciarLogin extends HttpServlet {
                 usuario = (Usuario)request.getSession().getAttribute("usuarioLogado");
                 if(usuario == null){
                     sessao.setAttribute("msg", "Usuário não altenticado!");
-                    response.sendRedirect("login.jsp");;
+                    response.sendRedirect("login.jsp");
                 }else{
                     for(Menu menu: usuario.getPerfil().getMenus()){
                         if(uri.contains(menu.getLink())){
@@ -184,6 +184,5 @@ public class GerenciarLogin extends HttpServlet {
     private void exibirMensage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         despachar = getServletContext().getNamedDispatcher("/login.jsp");
         despachar.forward(request, response);        
-    }
-    
+    }    
 }

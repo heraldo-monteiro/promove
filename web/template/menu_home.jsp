@@ -13,22 +13,10 @@
             <li><a href="home.jsp">Página Inicial</a></li>
             <li><a href="contato.jsp">Contato</a></li>
             <li><a href="sobre.jsp">Sobre</a></li>    
+            
             <li>
-                <div class="registrar_login">
-                    <div class="btnHomeRegistrar">
-                        <a href="cadastro.jsp"
-                           class="btnRegistrar"
-                           role="button">
-                           Registrar
-                        </a> 
-                    </div>                
-                    <div class="btnHomeLogin">
-                        <a href="login.jsp"
-                           class="btnLogin"
-                           role="button">
-                           Login
-                        </a> 
-                    </div>  
+                <div class="btnLogin">   
+                    <a href="login.jsp" class="btn-login"> Sign In </a>                 
                 </div>
             </li>   
         </ul>

@@ -16,9 +16,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">     
-        <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
-        <link rel="stylesheet" href="css/style_menu_home.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_page.css" type="text/css">          
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">         
@@ -60,6 +59,7 @@
                     Promove — promovendo conexões, promovendo resultados, promovendo você.
                 </div>   
                 
+                <jsp:include page="scripts/abrir_fechar_login.jsp"></jsp:include>
                 <div class="container-card">   
                         <div class="card">
                             <div class="img-card">
@@ -79,7 +79,7 @@
                             <div class="card-content">
                                 <div class="card-title"> nome do serviços</div>
                                 <div class="card-price"> preço</div>
-                                <button> Agendar</button>
+                                <button onclick=""> Agendar</button>
                             </div>
                         </div> 
                     
@@ -87,14 +87,15 @@
                             <div class="img-card">
                                 <img src="imagens/transferir.gif" class="img-view">
                             </div>
+                            
                             <div class="card-content">
                                 <div class="card-title"> nome do serviços</div>
-                                <div class="card-price"> preço</div>
-                                <button> Agendar</button>
-                            </div>
+                                <div class="card-price"> preço</div>    
+                                <jsp:include page="template/login_user.jsp"></jsp:include>
+                            </div>                            
                         </div>        
                 </div> <!-- Card Container-->
-                           
+               
             </div> <!-- Id CONTEUDO --> 
             <div id="footer">                
                 <jsp:include page="template/footer.jsp"></jsp:include>

@@ -14,9 +14,11 @@
         <meta charset="UTF-8">  
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">    
+        
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
+        
         <link rel="stylesheet" href="css/style_button.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">    
@@ -34,16 +36,18 @@
             <div id="menu">
                 <jsp:include page="template/menu_user.jsp"></jsp:include>                
             </div>
+            
             <div id="conteudo">
                 <h3 class="text-center mt-5"> Lista de Usuários</h3>
                 <div class="container">                
                     <table id="listarUsuario" class="table table-hover table-striped mt-3">
                         <thead>                          
                             <tr>
-                                <th style="border:none ">  <a href="cadastrarUsuario.jsp" 
+                                <th style="border:none "><a href="cadastrarUsuario.jsp" 
+                                       id="btn-novo"
                                        class="btn btn-success btn-sm" 
                                        role="button">
-                                       Novo
+                                       Novo Registro
                                     </a>
                                 </th>                                                           
                             </tr>  
@@ -85,22 +89,22 @@
                                         </c:choose>
                                     </td>   
 
-                                    <td>                                                                              
-                                        <a href="gerenciarUsuario?acao=alterar&idUsuario=${usuario.idUsuario}"
-                                           class="btn btn-warning btn-sm"
-                                           role="button"> Atualizar </a>  
+                                    <td>                                           
+                                        <a href="gerenciarUsuario?acao=alterar&idUsuario=${usuario.idUsuario}">
+                                            <div class="status-atualizar status"> Atualizar </div> 
+                                        </a>  
                                     </td> 
                                     <td class="acoes-btn"> 
                                         <jsp:include page="scripts/ativar_desativar_usuario.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${usuario.status == 1}">
-                                                <div class="btn btn-danger btn-sm btn-acao"
+                                                <div class="status-desativar status"
                                                         onclick="confirmDesativar('${usuario.idUsuario}', '${usuario.nome}')">
                                                         Desativar
                                                 </div>                                                
                                             </c:when>            
                                             <c:otherwise>
-                                                <div class="btn btn-success btn-sm btn-acao"
+                                                <div class="status-ativar status"
                                                         onclick="confirmAtivar('${usuario.idUsuario}', '${usuario.nome}')">
                                                         Ativar
                                                 </div>

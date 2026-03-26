@@ -10,13 +10,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">    
-      
+
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">   
-        
+
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">        
@@ -25,41 +25,42 @@
     <body>
         <div id="container">
             <div id="header">
-                
+
             </div>          
             <div id="menu">
                 <jsp:include page="template/menu_user.jsp"></jsp:include>                
-            </div>
-            <div id="conteudo">
-                <h3 class="text-center mt-5"> Lista de Menus</h3>   
-                <div class="container">  
-                                  
-                    <table id="listarMenu" 
-                           class="table 
-                           table-hover
-                           table-striped mt-3">
-                        
-                        <thead>    
-                            <tr>
-                        <th style="border: none">  
-                            <a href="cadastrarMenu.jsp" 
-                               class="btn btn-success btn-sm" 
-                               role="button">
-                               Novo 
-                            </a>
-                        </th> 
-                    </tr>
-                            <tr>
-                                <th> Código</th>
-                                <th> Nome</th>
-                                <th> Link</th>
-                                <th> Exibir</th>
-                                <th> Status</th>
-                                <th> Gerenciar </th>  
-                                <th> Ação </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                </div>
+                <div id="conteudo">
+                    <h3 class="text-center mt-5"> Lista de Menus</h3>   
+                    <div class="container">  
+
+                        <table id="listarMenu" 
+                               class="table
+                               table-hover
+                               table-striped mt-3">
+
+                            <thead>    
+                                <tr>
+                                    <th style="border: none">  
+                                        <a href="cadastrarMenu.jsp" 
+                                           id="btn-novo"
+                                           class="btn btn-sm"                                            
+                                           role="button">
+                                            Novo Registro
+                                        </a>
+                                    </th> 
+                                </tr>
+                                <tr>
+                                    <th> Código</th>
+                                    <th> Nome</th>
+                                    <th> Link</th>
+                                    <th> Exibir</th>
+                                    <th> Status</th>
+                                    <th> Gerenciar </th>  
+                                    <th> Ação </th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             <c:forEach items="${menus}" var="menu">
                                 <tr>
                                     <td> ${menu.idMenu}</td>
@@ -69,12 +70,12 @@
                                         <c:choose> 
                                             <c:when test="${menu.exibir == 1}">
                                                 <div>
-                                                    <img src="icons/icon_ativo.svg" class="icon">
+                                                    <img src="icons/icon_ativo.svg" class="icon-on">
                                                 </div>
                                             </c:when>
                                             <c:otherwise>
                                                 <div>
-                                                    <img src="icons/icon_inativo.svg" class="icon">
+                                                    <img src="icons/icon_inativo.svg" class="icon-off">
                                                 </div>
                                             </c:otherwise>
                                         </c:choose>
@@ -89,27 +90,27 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 
-                                    
+
                                     <td>                                                                              
-                                        <a href="gerenciarMenu?acao=alterar&idMenu=${menu.idMenu}"
-                                           class="btn btn-warning btn-sm"
-                                           role="button"> Atualizar </a>     
+                                        <a href="gerenciarMenu?acao=alterar&idMenu=${menu.idMenu}">
+                                            <div class="status-atualizar status"> Atualizar</div>
+                                        </a>     
                                     </td> 
-                                    
+
                                     <td> 
                                         <jsp:include page="scripts/ativar_desativar_menu.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${menu.status == 1}">                                            
-                                                    <div class="btn btn-danger btn-sm"
-                                                            onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
-                                                            Desativar
-                                                    </div>  
+                                                <div class="status-desativar status"
+                                                     onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
+                                                    Desativar
+                                                </div>  
                                             </c:when>            
                                             <c:otherwise>                                               
-                                                    <div class="btn btn-success btn-sm"
-                                                            onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
-                                                            Ativar
-                                                    </div>                                             
+                                                <div class="status-ativar status"
+                                                     onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
+                                                    Ativar
+                                                </div>                                             
                                             </c:otherwise>
                                         </c:choose>
                                     </td> 
@@ -120,24 +121,25 @@
                 </div>                
             </div>            
         </div>    
-            <!-- 1º --> <script src="js/jquery-3.6.0.min.js"></script>
-            <!-- 2º --> <script src="datatables/jquery.dataTables.min.js"></script>
-            <!-- 3º --> <script src="bootstrap/bootstrap.min.js"></script> 
-            <!-- 4º --> <script src="datatables/dataTables.bootstrap4.min.js"></script>     
-                        
+
+        <!-- 1º --> <script src="js/jquery-3.6.0.min.js"></script>
+        <!-- 2º --> <script src="datatables/jquery.dataTables.min.js"></script>
+        <!-- 3º --> <script src="bootstrap/bootstrap.min.js"></script> 
+        <!-- 4º --> <script src="datatables/dataTables.bootstrap4.min.js"></script>     
+
         <script>
-            $(document).ready(function () {                  
-                $('#listarMenu').dataTable({              
-                    autoWidth: false,                    
+            $(document).ready(function () {
+                $('#listarMenu').dataTable({
+                    autoWidth: false,
                     //dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
                     /*  
-                        l  =  lengthMenu
-                        f  =  sSearch (pesquisa)           
-                        t  =  Tabela centraliza entre o bloco1 e bloco2            
-                        i  =  sInfo 
-                        p  =  oPaginate (paginação)                        
-                    */ 
-                    "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
+                     l  =  lengthMenu
+                     f  =  sSearch (pesquisa)           
+                     t  =  Tabela centraliza entre o bloco1 e bloco2            
+                     i  =  sInfo 
+                     p  =  oPaginate (paginação)                        
+                     */
+                    "ordering": false, /* remove o icone de ordem crescente ou decrescente */
                     "bJQueryUI": true,
                     "lengthMenu": [[-1], [""]],
                     "oLanguage": {

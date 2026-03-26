@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
  
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css">         
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css">         
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">     
@@ -39,7 +39,8 @@
                 <jsp:include page="template/menu_user.jsp"></jsp:include>          
             </div><!-- Fim da div MENU-->                   
             <div id="conteudo">
-              <div class="container">   
+              <div class="container">                  
+                        
                   
               </div> <!-- fim da div class CONTAINER --> 
             </div> <!-- fim da div Id CONTEUDO --> 

@@ -20,10 +20,7 @@
 
                 <div id="form_header">
                     <h1>Login</h1>                    
-                </div>
-
-                
-
+                </div>    
                 <div id="input">
                     <!-- Campo Usuário -->
                     <div class="input-box">
@@ -35,14 +32,13 @@
                                 id="name"
                                 name="login"
                                 placeholder="Digite seu usuário"
-                                value="${loginDigitado}"
-                                required
-                            >
+                                value="${loginDigitado}"                                
+                                required />                                                    
                         </div>
                     </div>
 
                     <!-- Campo Senha -->
-                    <div class="input-box">
+                    <div class="input-box">                        
                         <label for="password">Senha</label>
                         <div class="input-field">
                             <img src="icons/password.svg" class="icon">
@@ -51,23 +47,23 @@
                                 id="password"
                                 name="senha"
                                 placeholder="Digite sua senha"
-                                required
-                            >
+                                required />
                         </div>
                     </div>
-
                 </div>
 
                 <button type="submit" id="login-button">
                     Login
                 </button>
-                <!-- Inclui mensagem de alerta -->
+                                
+                <!-- Exibe mensagem de alerta  dentro do fomulario de login -->
                 <jsp:include page="scripts/alert_login.jsp"></jsp:include>
-                
-                <div id="forgot_password">
-                    <a href="#">Esqueceu sua senha?</a>
-                </div>
-                
+                               
+                <div class="cancelar">
+                    <div class="btn-cancelar">
+                        <a href="home.jsp">Cancelar</a>
+                    </div>
+                </div>               
             </form>              
         </main>         
     </body>

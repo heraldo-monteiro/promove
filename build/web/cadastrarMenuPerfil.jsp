@@ -15,11 +15,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">              
         
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css">         
-        <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
-        <link rel="stylesheet" href="css/style_footer.css" type="text/css">  
-        <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css">   
+        <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">       
+       
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
+        <link rel="stylesheet" href="css/style_table.css" type="text/css">
+        <link rel="stylesheet" href="css/style_footer.css" type="text/css">  
         
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">   <!-- Style da Tabela JQuary -->
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css"> 
@@ -31,13 +32,13 @@
                 
             </div>
             <div id="menu">
-                <jsp:include page="template/menu_user.jsp"></jsp:include>  
+               
             </div>
             
             <div id="conteudo">
                 <div class="container">                     
                     <div class="form-table">
-                        <form action="gerenciarMenuPerfil" method="POST" class="form" style="min-width: 100%;  min-height: 100px">                                             
+                        <form action="gerenciarMenuPerfil" method="POST" class="form" style="min-width: 100%;  min-height: 100px; margin-top: 10px">                                             
                             <input type="hidden" name="idPerfil" value="${vincularP.idPerfil}" />
                             <h3 class=""> Gerenciar Permições </h3>
                             
@@ -59,17 +60,18 @@
                                         <option value="">Menus Desvinculados</option>
                                         <c:forEach items="${vincularP.naoMenus}" var="menu">
                                             <c:if test="${menu.status == 1}">
-                                                <option value="${menu.idMenu}">${menu.nome}</option>  
+                                                <option value="${menu.idMenu}">${menu.nome} </option>   
                                             </c:if>                              
                                         </c:forEach>
-                                    </select>                        
+                                    </select> 
                                 </div>
+                                
                             </div>
                                             
                             <!-- Button Vincular | Listar Perfil -->   
                             <div class="btn-vincule-list">                        
-                                <button type="submit" class="btn btn-primary btn-sm mr-4" id="btnVincular">Vincular</button> 
-                                <a href="gerenciarPerfil?acao=listar" class="btn btn-danger btn-sm">Listar Perfis</a>
+                                <button type="submit" class="btn btn-sm mr-4" id="btn-vincular">Vincular</button> 
+                                <a href="gerenciarPerfil?acao=listar" class="btn  btn-sm mr-4" id="btn-listar">Listar Perfis</a>
                             </div>
                         </form> 
                          
@@ -93,19 +95,19 @@
                                         <td> 
                                             <c:if test="${menu.exibir == 1}">
                                                  <div>
-                                                    <img src="icons/icon_ativo.svg" class="icon">
+                                                    <img src="icons/icon_ativo.svg" class="icon-on">
                                                 </div>
                                             </c:if>
                                             <c:if test="${menu.exibir == 0}">
                                                 <div>
-                                                    <img src="icons/icon_inativo.svg" class="icon">
+                                                    <img src="icons/icon_inativo.svg" class="icon-off">
                                                 </div>
                                             </c:if>
                                         </td>     
                                         
                                         <td> 
                                             <jsp:include page="scripts/alert_desvincular_menu.jsp"></jsp:include>
-                                            <div class="btn btn-danger btn-sm"
+                                            <div class="status-desvincular status"
                                                     onclick="desvincular_Menu('${menu.idMenu}', '${menu.nome}', '${vincularP.idPerfil}')">
                                                     Desvincular    
                                             </div>

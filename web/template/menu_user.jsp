@@ -8,14 +8,14 @@
     request.setAttribute("usuarioLogado", usuarioLogado);
 %>
 
-<div class="usuario-info">            
-    <h6 class="bemvindo">
+<div class="usuario-info">       
+    <c:if test="${usuarioLogado != null}">
         Bem-vindo,  ${usuarioLogado.nome}
-    </h6>                     
+    </c:if>
 </div>
 
 <header>       
-    <nav id="menuBar" class="menu-bar">   
+    <nav id="menuBar-user" class="menu-bar">   
         <ul> <!-- Lista de menus -->           
             <c:if test="${usuarioLogado != null && usuarioLogado.perfil != null}">
                 <c:forEach items="${usuarioLogado.perfil.menus}" var="menu">
@@ -39,12 +39,12 @@
                 </div>  
             </c:when> 
             <c:otherwise>      
-                <div class="btnLoginForm">
+                <div class="loginMenu">
                     <a href="login.jsp"
                        class="btnLogin"
-                       role="button">
-                       Login
-                    </a>           
+                       role="button">                     
+                    </a>  
+                    Login
                 </div>
             </c:otherwise>
         </c:choose>

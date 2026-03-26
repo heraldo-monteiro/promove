@@ -15,15 +15,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
+        
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
+              
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">  
         <link rel="stylesheet" href="css/msg_erro.css" type="text/css">      
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">   
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css"> 
-        <title> Promone </title>
+        <title> Promove </title>
     </head>
     <body>
         <div id="container">   

@@ -32,8 +32,7 @@ public class PerfilDao {
             perfil.setNome(rs.getString("nome"));           
             perfil.setStatus(rs.getInt("status"));
             perfis.add(perfil);            
-        }
-        
+        }        
         ConexaoFactory.close(conexao);
         return perfis;
     }    

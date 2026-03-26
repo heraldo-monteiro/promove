@@ -1,0 +1,212 @@
+
+/*==============================================================================
+    - Barra de Menu da Pagina Index
+    - Pagina(Index) dos Usuarios Altenticados
+------------------------------------------------------------------------------*/
+.menu-bar {  
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;  
+    transition: max-height 0.4s ease;  
+    background-color: #2c3e50;     
+    z-index: 1000;  /*Controle de empilhamento, o maior valor se sobrepoe(fica a frente do menor valor)*/
+}
+
+/* layout dos itens  da barra de menu*/
+.menu-bar ul { 
+  margin: 0px;
+  padding: 10px 0;
+  display: flex;
+  list-style: none;  
+  justify-content: flex-start; /* alinha os itens a margem esquerda */
+  align-items: center;  
+}
+.menu-bar li { 
+  margin: 0 10px;  
+}
+
+.menu-bar a {
+  color: #ecf0f1;  
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: background 0.3s;
+  border-radius: 10px;
+  
+}
+
+.menu-bar a:hover {
+  background-color: #1abc9c;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/*Informação dos usuarios logado no sistema*/
+.usuario-info { 
+  display: flex;              /* coloca os dois na mesma linha */
+  align-items: center;        /* alinha verticalmente */
+  gap: 15px;                  /* espaço entre o nome e o botão */
+  
+  font-family: Arial, sans-serif;
+}
+h6{
+    width: 920px;
+    margin: 0 10px;
+}
+
+/*==============================================================================
+    - Barra de Menu da Pagina Home 
+    - Pagina (Home) pagina de boas vindas
+------------------------------------------------------------------------------*/
+#menuBar ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    justify-content: flex-start; 
+    padding: 0;
+    margin: 0;
+    gap: 3px;    
+}
+.menu-bar ul li:last-child{
+    margin-left: auto;
+}
+
+li{
+   letter-spacing: 1px; /* Espaçamento entre as letras  do Login*/    
+}
+
+
+/*==============================================================================
+    - Estilos dos Clips Cards 
+    - 
+------------------------------------------------------------------------------*/
+.container-card{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;  
+    margin: 5px;
+    gap:2px;    
+}
+
+.img-view{
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.card {
+    width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;       
+}
+
+.card-img {
+    height: 160px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-price {
+    font-size: 16px;
+    color: #2e7d32;
+    margin-bottom: 12px;
+}
+
+.card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #125aa0;
+}
+
+
+/*==============================================================================
+    - Login Flutuante
+    - estilização do formulario de login flutuantes
+------------------------------------------------------------------------------*/
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* fundo escuro */
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* caixa flutuante */
+#loginBox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 25px;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#loginBox input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#loginBox button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0px;
+}
+
+.fechar { 
+  max-width: 30px;
+  max-height: 30px;
+  border-radius: 0 8px 0 8px;  
+  background: red !important;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rs{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

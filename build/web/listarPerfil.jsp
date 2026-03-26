@@ -16,12 +16,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">   
-        
+
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
+
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_button.css" type="text/css">
-        <link rel="stylesheet" href="css/style_footer.css" type="text/css">           
+        <link rel="stylesheet" href="css/style_footer.css" type="text/css">   
+
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
         <link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">
@@ -30,38 +32,39 @@
     <body>
         <div id="container">
             <div id="header">
-                
+
             </div> <!-- fim da div HEADER-->            
             <div id="menu">               
                 <jsp:include page="template/menu_user.jsp"></jsp:include>            
-            </div><!-- fim da div MENU-->
-            <div id="conteudo" class="">
-                <h3 class="text-center mt-5"> Lista de Perfis</h3> 
-                
-                <div class="container">   
-                    <table id="listarPerfis"
-                           class="table 
-                           table-hover
-                           table-striped mt-3">                        
-                        <thead>
-                            <tr>
-                                <th style="border:none"> 
-                                    <a href="cadastrarPerfil.jsp" 
-                                       class="btn btn-success btn-sm" 
-                                       role="button">
-                                       Novo 
-                                    </a>
-                                </th>                                                          
-                            </tr>                             
-                            <tr>
-                                <th> Código</th>
-                                <th> Nome</th>                                
-                                <th> Status</th>
-                                <th> Gerenciar</th>
-                                <th> Ação</th>
-                            </tr>                            
-                        </thead>
-                        <tbody>
+                </div><!-- fim da div MENU-->
+                <div id="conteudo" class="">
+                    <h3 class="text-center mt-5"> Lista de Perfis</h3> 
+
+                    <div class="container">   
+                        <table id="listarPerfis"
+                               class="table
+                               table-hover
+                               table-striped mt-3">                        
+                            <thead>
+                                <tr>
+                                    <th style="border:none"> 
+                                        <a href="cadastrarPerfil.jsp"
+                                           id="btn-novo"
+                                           class="btn btn-sm" 
+                                           role="button">
+                                            Novo Registro
+                                        </a>
+                                    </th>                                                          
+                                </tr>                             
+                                <tr>
+                                    <th> Código</th>
+                                    <th> Nome</th>                                
+                                    <th> Status</th>
+                                    <th> Gerenciar</th>
+                                    <th> Ação</th>
+                                </tr>                            
+                            </thead>
+                            <tbody>
                             <c:forEach items="${perfis}" var="perfil">
                                 <tr>
                                     <td>${perfil.idPerfil}</td>
@@ -76,17 +79,15 @@
                                             </c:otherwise>
                                         </c:choose>                                         
                                     </td>    
-                                    
+
                                     <td>                                                                              
-                                        <a href="gerenciarPerfil?acao=alterar&idPerfil=${perfil.idPerfil}"
-                                           class="btn btn-warning btn-sm"
-                                           role="button"> Aritalizar
+                                        <a href="gerenciarPerfil?acao=alterar&idPerfil=${perfil.idPerfil}">
+                                            <div class="status-atualizar status">Atualizar</div>
                                         </a>  
                                     </td>   
                                     <td> 
-                                        <a href="gerenciarMenuPerfil?acao=vincular&idPerfil=${perfil.idPerfil}"
-                                           class="btn btn-secondary btn-sm"
-                                           role="button"> Vincular </a>
+                                        <a href="gerenciarMenuPerfil?acao=vincular&idPerfil=${perfil.idPerfil}">
+                                            <div class="status-vincular status"> Vincular</div>
                                     </td>                                    
                                 </tr>   
                             </c:forEach>
@@ -95,32 +96,32 @@
                 </div> <!-- fim da div Class CONTAINER -->                               
             </div> <!-- fim da div Id CONTEUDO -->      
         </div> <!-- fim da div Id CONTAINER -->    
-        
-            <!-- 1º --><script src="js/jquery-3.6.0.min.js"></script>
-            <!-- 2º --><script src="datatables/jquery.dataTables.min.js"></script>
-            <!-- 3º --><script src="bootstrap/bootstrap.min.js"></script> 
-            <!-- 4º --><script src="datatables/dataTables.bootstrap4.min.js"></script>             
-   
+
+        <!-- 1º --><script src="js/jquery-3.6.0.min.js"></script>
+        <!-- 2º --><script src="datatables/jquery.dataTables.min.js"></script>
+        <!-- 3º --><script src="bootstrap/bootstrap.min.js"></script> 
+        <!-- 4º --><script src="datatables/dataTables.bootstrap4.min.js"></script>             
+
         <script>
             $(document).ready(function () {
                 $('#listarPerfis').dataTable({
                     columnDefs: [
-                        { width: '0px',  targets: 0 }, // Código
-                        { width: '190px', targets: 1 }, // Nome
-                        { width: '120px', targets: 2 }, // Status
-                        { width: '120px', targets: 3 }, // Gerenciar
-                        { width: '120px', targets: 4 }  // Ação
-                     ],
+                        {width: '0px', targets: 0}, // Código
+                        {width: '190px', targets: 1}, // Nome
+                        {width: '120px', targets: 2}, // Status
+                        {width: '120px', targets: 3}, // Gerenciar
+                        {width: '120px', targets: 4}  // Ação
+                    ],
                     autoWidth: false,
-                    
-                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',    
-                       // l  =  lengthMenu
-                       // f  =  sSearch (pesquisa)           
-                       // t  =  Tabela centraliza entre o bloco1 e bloco2            
-                       // i  =  sInfo 
-                       // p  =  oPaginate (paginação)                      
-                     
-                    "ordering": false,  
+
+                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',
+                    // l  =  lengthMenu
+                    // f  =  sSearch (pesquisa)           
+                    // t  =  Tabela centraliza entre o bloco1 e bloco2            
+                    // i  =  sInfo 
+                    // p  =  oPaginate (paginação)                      
+
+                    "ordering": false,
                     "bJQueryUI": true,
                     "lengthMenu": [[-1], [""]],
                     "oLanguage": {

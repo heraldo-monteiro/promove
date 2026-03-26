@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Usuario` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 INSERT INTO `usuario` VALUES
-	(1,'2025-10-10','Administrador','admin','admin',1,1);
+	(1,'2025-10-10','Administrador','admin','admin',1,1),
+        (2,'2026-03-20','Teste System','Teste','teste',1,5);
 
 
 -- -----------------------------------------------------
@@ -68,18 +69,20 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Menu` (
   UNIQUE INDEX `link_UNIQUE` (`link` ASC) )
 ENGINE = InnoDB;
 INSERT INTO `menu` VALUES
-	(1,'Menu','gerenciarMenu?acao=listar',1,1),
-	(2,'Perfil','gerenciarPerfil?acao=listar',1,1),
-	(3,'Usuario','gerenciarUsuario?acao=listar',1,1),	
-	(4,'alterar Menu','gerenciarMenu?acao=alterar',0,1),
-	(5,'alterar Perfil','gerenciarPerfil?acao=alterar',0,1),
-	(6,'alterar Usuario','gerenciarUsuario?acao=alterar',0,1),	
-	(7,'ativar Menu','gerenciarMenu?acao=ativar',0,1),
-	(8,'ativar Perfil','gerenciarPerfil?acao=ativar',0,1),
-	(9,'ativar Usuario','gerenciarUsuario?acao=ativar',0,1),	
-	(10,'desativar Menu','gerenciarMenu?acao=desativar',0,1),
-	(11,'desativar Perfil','gerenciarPerfil?acao=desativar',0,1),
-	(12,'desativar Usuario','gerenciarUsuario?acao=desativar',0,1);
+        (1,'Home','index.jsp',1,1),
+	(2,'Menu','gerenciarMenu?acao=listar',1,1),
+	(3,'Perfil','gerenciarPerfil?acao=listar',1,1),
+	(4,'Usuario','gerenciarUsuario?acao=listar',1,1),	
+	(5,'alterar Menu','gerenciarMenu?acao=alterar',0,1),
+	(6,'alterar Perfil','gerenciarPerfil?acao=alterar',0,1),
+	(7,'alterar Usuario','gerenciarUsuario?acao=alterar',0,1),	
+	(8,'ativar Menu','gerenciarMenu?acao=ativar',0,1),
+	(9,'ativar Perfil','gerenciarPerfil?acao=ativar',0,1),
+	(10,'ativar Usuario','gerenciarUsuario?acao=ativar',0,1),	
+	(11,'desativar Menu','gerenciarMenu?acao=desativar',0,1),
+	(12,'desativar Perfil','gerenciarPerfil?acao=desativar',0,1),        
+	(13,'desativar Usuario','gerenciarUsuario?acao=desativar',0,1),
+        (14,'Cadastro','cadastro.jsp',0,1);
 
 -- -----------------------------------------------------
 -- Table `promove_database`.`Menu_Perfil`
@@ -102,8 +105,19 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Menu_Perfil` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 INSERT INTO `menu_perfil` VALUES
-	(1,1),(2,1),(3,1);
-
+    (1,1),
+    (2,1),
+    (3,1),
+    (4,1),
+    (5,1),
+    (6,1),
+    (7,1),
+    (8,1),
+    (9,1),
+    (10,1),
+    (11,1),
+    (12,1),
+    (13,1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

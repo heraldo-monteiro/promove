@@ -39,57 +39,76 @@ public class GerenciarUsuario extends HttpServlet {
         usuario = new Usuario();
         
         try {
+            //Listar
             if(acao.equals("listar")){
-                ArrayList<Usuario> usuarios = new ArrayList<>();
-                usuarios = udao.getListarUsuario();
-                despachar = getServletContext().getRequestDispatcher("/listarUsuario.jsp");
-                request.setAttribute("usuarios", usuarios);
-                despachar.forward(request, response);
-                
-            }else if(acao.equals("alterar")){                
-                usuario = udao.getCarregarUsuario(Integer.parseInt(idUsuario));
-                if(usuario.getIdUsuario() > 0){
-                    despachar = getServletContext().getRequestDispatcher("/cadastrarUsuario.jsp");
-                    request.setAttribute("usuario", usuario);
-                    despachar.forward(request, response);
-                    exibirMensage(request, response);
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    ArrayList<Usuario> usuarios = new ArrayList<>();
+                    usuarios = udao.getListarUsuario();
+                    despachar = getServletContext().getRequestDispatcher("/listarUsuario.jsp");
+                    request.setAttribute("usuarios", usuarios);
+                    despachar.forward(request, response); 
                 }else{
-                    message = "Usuário não encontrado!";
-                }     
+                    message = "Usuário não autorizado!";
+                }               
+                
+            //Alterar    
+            }else if(acao.equals("alterar")){
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    usuario = udao.getCarregarUsuario(Integer.parseInt(idUsuario));
+                    if(usuario.getIdUsuario() > 0){
+                        despachar = getServletContext().getRequestDispatcher("/cadastrarUsuario.jsp");
+                        request.setAttribute("usuario", usuario);
+                        despachar.forward(request, response);
+                        exibirMensage(request, response);
+                    }else{
+                        message = "Usuário não encontrado!";
+                    }  
+                }else{
+                    message = "Usuário não autorizado!";
+                }
+            
             //Ativar
             }else if(acao.equals("ativar")){
-                usuario.setIdUsuario(Integer.parseInt(idUsuario));
-                if(udao.ativarUsuario(usuario)){
-                    response.sendRedirect("gerenciarUsuario?acao=listar");
+                if(GerenciarLogin.verificarPermissao(request, response)){                    
+                    usuario.setIdUsuario(Integer.parseInt(idUsuario));
+                    if(udao.ativarUsuario(usuario)){
+                        response.sendRedirect("gerenciarUsuario?acao=listar");
+                    }else{
+                        message = "Falha ao ativar o Usuário!";
+                    } 
                 }else{
-                    message = "Falha ao ativar o Usuário!";
-                }
+                    message = "Usuário não autorizado!";
+                }    
                 
             //Desativar
-            }else if(acao.equals("desativar")){
-                usuario.setIdUsuario(Integer.parseInt(idUsuario));
-                if(udao.desativarUsuario(usuario)){
-                     response.sendRedirect("gerenciarUsuario?acao=listar");
+            }else if(acao.equals("desativar")){                
+                if(GerenciarLogin.verificarPermissao(request, response)){
+                    usuario.setIdUsuario(Integer.parseInt(idUsuario));
+                    if(udao.desativarUsuario(usuario)){
+                         response.sendRedirect("gerenciarUsuario?acao=listar");
+                    }else{
+                        message = "Falha ao Desativar o Usuário!";
+                    }   
+                    
                 }else{
-                    message = "Falha ao Desativar o Usuário!";
-                }                
+                    message = "Usuário não aotorizado!";
+                }              
             }else{
                 response.sendRedirect("index.jsp");
-            }
-            
+            }   
             
         } catch (SQLException erro) {
             message = "Erro!"+erro.getMessage();
             erro.printStackTrace();
         }
-           /*     
+               
         out.print(
             "<script type='text/javascript'>"+
                 "alert('"+message+"');"+
                 "location.href='gerenciarUsuario?acao=listar';"+
             "</script>"
         ); 
-       */
+       
     }    
     
     @Override
@@ -133,7 +152,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             java.util.Date utilDate = java.sql.Date.valueOf(dataCadastro);
             dataSql = new java.sql.Date(utilDate.getTime());
         } catch (IllegalArgumentException e) {
-            // se formato inválido, usa data atual
+            // se o formato for inválido, usa data atual
             dataSql = new java.sql.Date(System.currentTimeMillis());
         }
     }

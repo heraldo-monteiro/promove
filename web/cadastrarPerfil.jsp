@@ -11,25 +11,25 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1">  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
-        <!-- CSS -->            
+         
         <link rel="stylesheet" href="css/style_page.css" type="text/css">      
-        <link rel="stylesheet" href="css/style_menu_user.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
+              
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">          
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">     <!-- Style da Tabela -->
         <link rel="stylesheet" href="css/msg_erro.css" type="text/css">             <!-- Mensagem de Erro -->
-        <!-- JQuary | Bootstrap -->
+      
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">        
-        <title> Titulo da Aplicação </title>
+        <title> Cadsatro de Perfil </title>
     </head>
     <body>
         <div id="container">    
             <div id="header">    
                 
             </div> <!-- Fim da div HEADER--> 
-            <div id="menu">
-                <jsp:include page="template/menu_user.jsp"></jsp:include>  
+            <div id="menu">            
           
             </div>     
             
