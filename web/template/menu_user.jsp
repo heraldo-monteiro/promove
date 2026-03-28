@@ -30,21 +30,17 @@
         
         <c:choose>
             <c:when test="${usuarioLogado != null}">
-                <div class="logout">
+                <div class="btnLogout">
                     <a href="home.jsp"
-                       class="btnLogout"
+                       class="btn-logout"
                        role="button">
                        Sair                
                     </a>
                 </div>  
             </c:when> 
             <c:otherwise>      
-                <div class="loginMenu">
-                    <a href="login.jsp"
-                       class="btnLogin"
-                       role="button">                     
-                    </a>  
-                    Login
+                <div class="btnLogin">
+                    <a href="login.jsp" class="btn-login"> Sign In </a>  
                 </div>
             </c:otherwise>
         </c:choose>

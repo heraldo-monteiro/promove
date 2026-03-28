@@ -11,7 +11,7 @@
                 <button type="button" 
                     class="close" 
                     data-dismiss="alert"
-                    aria-label="Close">&times;</spam>
+                    aria-label="Close">&times;
                 </button>
             </div>                
 <%   
@@ -19,7 +19,6 @@
 
         if(sessao.getAttribute("ulogado") == null){
             response.sendRedirect("index.jsp");
-
         }
     sessao.removeAttribute("msg");    
     }    

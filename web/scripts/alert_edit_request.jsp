@@ -20,7 +20,7 @@
                 <button type="button" 
                     class="close" 
                     data-dismiss="alert"
-                    aria-label="Close">&times;</spam>
+                    aria-label="Close">&times;
                 </button>
             </div>                
 <%   

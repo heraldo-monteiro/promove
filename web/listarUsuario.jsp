@@ -56,7 +56,7 @@
                                 <th> Código</th>
                                 <th> Nome</th>
                                 <th> Perfil</th>
-                                <th> Cadastrado</th>                               
+                                <th> Registro</th>                               
                                 <th> Login</th>
                                 <th> Senha</th>
                                 <th> Status</th>     

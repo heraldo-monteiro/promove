@@ -31,9 +31,9 @@ public class GerenciarLogin extends HttpServlet {
         if(sessao != null && sessao.getAttribute("usuarioLogado") != null){
             sessao.removeAttribute("usuarioLogado");
             sessao.invalidate();
-            response.sendRedirect("login.jsp");                
+            response.sendRedirect("home.jsp");                
         }else{
-            response.sendRedirect("login.jsp");                  
+            response.sendRedirect("home.jsp");                  
         }
     }
     

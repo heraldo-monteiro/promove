@@ -38,7 +38,6 @@
                                class="table
                                table-hover
                                table-striped mt-3">
-
                             <thead>    
                                 <tr>
                                     <th style="border: none">  
@@ -128,39 +127,39 @@
         <!-- 4º --> <script src="datatables/dataTables.bootstrap4.min.js"></script>     
 
         <script>
-            $(document).ready(function () {
-                $('#listarMenu').dataTable({
-                    autoWidth: false,
-                    //dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
-                    /*  
-                     l  =  lengthMenu
-                     f  =  sSearch (pesquisa)           
-                     t  =  Tabela centraliza entre o bloco1 e bloco2            
-                     i  =  sInfo 
-                     p  =  oPaginate (paginação)                        
-                     */
-                    "ordering": false, /* remove o icone de ordem crescente ou decrescente */
-                    "bJQueryUI": true,
-                    "lengthMenu": [[-1], [""]],
-                    "oLanguage": {
-                        "sProcessing": "Processando",
-                        "sLengthMenu": "",
-                        "sZeroRecords": "Não foram encontrados resultados",
-                        "sInfo": "Total de registros: _TOTAL_",
-                        "sInfoEmpty": "",
-                        "sInfoFiltered": "",
-                        "sInfoPostFix": "",
-                        "sSearch": "Pesquisar",
-                        "sUrl": "oi",
-                        "oPaginate": {
-                            "sFirst": "",
-                            "sPrevious": "",
-                            "sNext": "",
-                            "sLast": ""
-                        }
-                    }
-                });
-            });
+                                                         $(document).ready(function () {
+                                                             $('#listarMenu').dataTable({
+                                                                 autoWidth: false,
+                                                                 //dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
+                                                                 /*  
+                                                                  l  =  lengthMenu
+                                                                  f  =  sSearch (pesquisa)           
+                                                                  t  =  Tabela centraliza entre o bloco1 e bloco2            
+                                                                  i  =  sInfo 
+                                                                  p  =  oPaginate (paginação)                        
+                                                                  */
+                                                                 "ordering": false, /* remove o icone de ordem crescente ou decrescente */
+                                                                 "bJQueryUI": true,
+                                                                 "lengthMenu": [[-1], [""]],
+                                                                 "oLanguage": {
+                                                                     "sProcessing": "Processando",
+                                                                     "sLengthMenu": "",
+                                                                     "sZeroRecords": "Não foram encontrados resultados",
+                                                                     "sInfo": "Total de registros: _TOTAL_",
+                                                                     "sInfoEmpty": "",
+                                                                     "sInfoFiltered": "",
+                                                                     "sInfoPostFix": "",
+                                                                     "sSearch": "Pesquisar",
+                                                                     "sUrl": "oi",
+                                                                     "oPaginate": {
+                                                                         "sFirst": "",
+                                                                         "sPrevious": "",
+                                                                         "sNext": "",
+                                                                         "sLast": ""
+                                                                     }
+                                                                 }
+                                                             });
+                                                         });
         </script>         
     </body>    
 </html>

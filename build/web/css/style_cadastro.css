@@ -40,25 +40,45 @@ hr{
     border: none;
     background: linear-gradient(to right, #999, #000, #999);
 }
-
-input {
+input { /* Atribuidos a todos os inputs*/
     border-radius: 10px;
-    padding-left: 10px;
+    padding-left: 12px;    
+    
 }
-
- /*Cadastro de usuarios*/   
-.nome input, .link input, .login input, .senha input{
+.input-nome, .input-link, .input-login,
+.input-cpfcnpj, .input-email{
     width: 100%;
-    max-width: 320px;
+    height: 32px;
+    max-width: 90%;
 }
-.select-menu, .input-nome{
-    max-width: 320px;
+.input-container label {
+    margin-bottom: 0;
 }
-
+.input-container label {
+    margin-top: 5px;
+}
 input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
+}
+input[type="radio"] {  
+    cursor: pointer;
+}
+
+.exibir-senha {
+    position: absolute;
+    right: 50px;      /* entra dentro do input */
+    top: 54%;
+    transform: translateY(-20%);
+    cursor: pointer;
+    color: #666;
+}
+.senha i{
+    font-size: 20px;
+    cursor: pointer;    
+    position: absolute;
+    right: 52.5%;    
 }
 
 /*==============================================================================
@@ -111,5 +131,38 @@ input[type="checkbox"] {
 }
 
 /*==============================================================================
------ CLIENTE ------------------------------------------------------------------
+----- PAGINA MENU PERFIL -------------------------------------------------------
+-     Estilos da paginas Menu Perfil, formulario de Gerenciar Permiçoes
 ------------------------------------------------------------------------------*/
+
+.nome-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 0; /* colado na esquerda */   
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(128,128,0);
+}
+.campo {
+  display: flex;
+  align-items: center;
+}
+.campo label {
+  width: 70px;
+  font-weight: 700;
+  color: rgb(47,79,79);
+}
+.select-menu {
+  flex: 1;
+  padding: 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(143,188,143); 
+}
+.btn-vincule-list {
+  margin-top: 10px;
+}
+
+
+

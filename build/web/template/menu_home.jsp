@@ -16,7 +16,7 @@
             
             <li>
                 <div class="btnLogin">   
-                    <a href="login.jsp" class="btn-login"> Sign In </a>                 
+                    <a href="login.jsp" class="btn-login"> Sign In </a>                  
                 </div>
             </li>   
         </ul>

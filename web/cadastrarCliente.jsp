@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">     <!-- Style da Tabela -->
         <link rel="stylesheet" href="css/msg_erro.css" type="text/css">             <!-- Mensagem de Erro -->
 
-        <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">        
+        <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">       
+        <script src="${pageContext.request.contextPath}/scripts/format_cpf_cnpj.jsp"></script>
         <title> Cadsatro de Cliente </title>
     </head>
     <body>
@@ -36,14 +37,15 @@
             <div id="conteudo">                
                 <div class="container">  
                     <form action="gerenciarCliente" method="POST" class="form-cliente"> 
-                        <input type="hidden" name="idCliente" value="${cliente.idCliente}">                              
+                        <input type="hidden" name="idCliente" value="${cliente.idCliente}">           
+                        <input type="hidden" name="status" value="${cliente.status}">      
                         <h3 class="text-center mt-3"> Cadastro de Cliente </h3><hr>
 
                         <!-- Nome -->
-                        <div class="nome">
+                        <div class="input-container">
                             <label> Nome: </label>
-                            <div class="">
-                                <input type="text" class="input-cliente" id="nome"
+                            <div class="nome">
+                                <input type="text" class="input-nome"
                                    name="nome"
                                    value="${cliente.nome}"
                                    />                                
@@ -51,22 +53,24 @@
                         </div>
 
                         <!-- Cpf_Cnpj -->
-                        <div class="cpf_cnpj">
-                            <label> Cpf-Cnpj</label>
-                            <div class="cpf_cnpj">
-                                <input type="text" class="input-cliente" id="cpf_cnpj"                                       
+                        <div class="input-container">                           
+                            <label> CPF-CNPJ: </label>
+                            <div class="cpf-cnpj">   
+                                <jsp:include page="scripts/format_cpf_cnpj.jsp"></jsp:include>
+                                <input type="text" class="input-cpfcnpj"                                      
                                    name="cpf_cnpj"
-                                   value="${cliente.cpf_cnpj}"
-                                   maxlength="14"
-                                    /> 
+                                   value="${cliente.cpf_cnpj}"    
+                                   maxlength="18"
+                                   oninput="format_cpf_cnpj(this)" > 
                             </div>                                                         
                         </div>
 
                         <!-- Email -->
-                        <div class="email">
-                            <label> Email</label>
-                            <div class="">                                
-                                 <input type="text" class="input-cliente"  id="email"
+                    
+                        <div class="input-container">
+                            <label> Email: </label>
+                            <div class="email">                                
+                                 <input type="text" class="input-email"
                                    name="email"
                                    value="${cliente.email}"
                                    />  
@@ -74,35 +78,36 @@
                         </div>
 
                         <!-- Telefone -->
-                        <div class="telefone">
-                            <label> Telefone</label>
-                            <div class="telefone">                                
-                                 <input type="text" id="telefone" class=""
+                        <div class="input-container">                             
+                            <label> Telefone: </label>
+                            <div class="telefone">                                 
+                                 <jsp:include page="scripts/format_telefone.jsp"></jsp:include>
+                                 <input type="text" class="input-telefone"
                                    name="telefone"
                                    value="${cliente.telefone}" 
-                                   maxlength="11"
-                                   />                                
+                                   maxlength="14"
+                                   oninput="format_telefone(this)" />                                
                             </div>                                                      
                         </div>
 
                         <!-- Status -->
-                        <div class="status">
-                            <label class="lbl-status"> Status: </label>   
+                        <div class="input-status">
+                            <label> Status: </label>   
+                            <div>
+                                <label>
+                                <input type="radio"
+                                       name="status" value="1"
+                                       <c:if test="${cliente.status == 1}"> checked </c:if> />
+                                       Ativado
+                                </label>
+                            </div>
+
                             <div>
                                 <label>
                                     <input type="radio"
-                                           name="status" value="1"
-                                           <c:if test="${cliente.status == 1}"> checked </c:if> />
-                                           Ativado
-                                    </label>
-                                </div>
-
-                                <div>
-                                    <label>
-                                        <input type="radio"
-                                               name="status" value="0"
-                                        <c:if test="${cliente.status == 0}"> checked </c:if> />
-                                    Desativado
+                                           name="status" value="0"
+                                    <c:if test="${cliente.status == 0}"> checked </c:if> />
+                                Desativado
                                 </label>
                             </div>  
                         </div>                            

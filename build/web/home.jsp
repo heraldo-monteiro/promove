@@ -59,7 +59,7 @@
                     Promove — promovendo conexões, promovendo resultados, promovendo você.
                 </div>   
                 
-                <jsp:include page="scripts/abrir_fechar_login.jsp"></jsp:include>
+                <jsp:include page="scripts/login_flutuante.jsp"></jsp:include>
                 <div class="container-card">   
                         <div class="card">
                             <div class="img-card">
@@ -91,7 +91,7 @@
                             <div class="card-content">
                                 <div class="card-title"> nome do serviços</div>
                                 <div class="card-price"> preço</div>    
-                                <jsp:include page="template/login_user.jsp"></jsp:include>
+                                <jsp:include page="template/login_flutuante.jsp"></jsp:include>
                             </div>                            
                         </div>        
                 </div> <!-- Card Container-->

@@ -1,19 +1,17 @@
 #footer{
     width: 100%;
-
     height: 80px;
 }
 .footer {
     display: flex;
-    flex-wrap: wrap;     /* Quebrar linha sem transbordar */
-    justify-content: space-between; /* Espaço igual entre as colunas */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
     background: #F1F1F1;
-    color: #fff;
-    gap: 20px;
+    color: #333;
+    gap: 30px;
 }
 .footer  ul{ 
     margin: 0;

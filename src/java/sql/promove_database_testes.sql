@@ -26,9 +26,9 @@ ENGINE = InnoDB;
 INSERT INTO `perfil` VALUES 
 	(1,'Administrador',1),
 	(2,'Gerenciador',1),
-	(3,'Suporte',1),
-	(4,'Usuario',1),
-	(5,'Convidado',1);
+	(3,'Supervisor',1),
+	(4,'Suporte',1),
+	(5,'Usuario',1);
 
 -- -----------------------------------------------------
 -- Table `promove_database`.`Usuario`
@@ -126,9 +126,9 @@ INSERT INTO `menu_perfil` VALUES
 CREATE TABLE IF NOT EXISTS `promove_database`.`Cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(160) NOT NULL,
-  `cpf_cnpj` VARCHAR(20) NULL,
+  `cpf_cnpj` VARCHAR(18) NULL,
   `email` VARCHAR(160) NOT NULL,
-  `telefone` VARCHAR(20) NOT NULL,
+  `telefone` VARCHAR(14) NOT NULL,
   `status` INT NOT NULL,
   PRIMARY KEY (`idCliente`),
   UNIQUE INDEX `cpf_UNIQUE` (`cpf_cnpj` ASC) )

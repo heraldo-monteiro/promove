@@ -24,9 +24,10 @@
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">      
         <link rel="stylesheet" href="css/msg_erro.css" type="text/css">
         
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css"> 
+      
         <title> Promone </title>
     </head>
     <body>
@@ -37,16 +38,17 @@
             <div id="conteudo">
                 <div class="container">             
                     <form action="gerenciarUsuario" method="POST" class="form-usuario">
-                        <h3 class="">Cadastro de Usuários</h3><hr>
+                        <h3 class="">Cadastro de Usuários</h3> <hr>
                         <input type="hidden" name="idUsuario" value="${usuario.idUsuario}">
                         <input type="hidden" name="dataCadastro" value="${usuario.dataCadastro}">
 
                         <!-- Agrupamento Nome | Login | Senha -->
                         <div class="agrupamento-nome-login-senha">   
-                            <div class="nome">
+                            
+                            <div class="input-container">
                                 <label> Nome: </label>
-                                <div class="">
-                                    <input type="text" class=""
+                                <div class="nome">
+                                    <input type="text" class="input-nome"
                                         name="nome"
                                         placeholder="Nome do usuário!"
                                         value="${usuario.nome}"
@@ -55,35 +57,38 @@
                             </div>
 
                             <!-- Login -->
-                            <div class="login">
+                            <div class="input-container">
                                 <label> Login: </label>
-                                <div class="">
-                                    <input type="text" class=""                                       
+                                <div class="login">
+                                    <input type="text" class="input-login"                                       
                                         name="login"
                                         placeholder="Login do usuário!"
-                                        value="${usuario.login}"
-                                    />                                   
+                                        value="${usuario.login}" />                                    
                                 </div>                                
                             </div>
 
-                            <!-- Senha -->
-                            <div class="senha">
-                                <label> Senha: </label>
-                                <div class="">
-                                    <input type="password" class=""
+                            <!-- Senha -->                             
+                            <div class="input-container">                               
+                                <label> Senha: </label>                
+                                <div class="senha">                                       
+                                    <jsp:include page="scripts/exibir_senha.jsp"></jsp:include>
+                                    <input type="password" class="input-senha" style="height: 32px"
                                         name="senha"
                                         placeholder="Senha de acesso!"
-                                        value="${usuario.senha}"
-                                    />                                    
-                                </div>                                
-                            </div>
+                                        value="${usuario.senha}"/>   
+                                    <i class="fa fa-eye exibir-senha" onclick="exibirSenha(this)"> </i>
+                                </div>     
+                                   
+                            </div>   
+
                         </div> <!-- fim do agrupamento Nome | Login | Senha  -->
 
                         <!-- Perfil | Status -->    
                         <div class="agrupamento-perfil-status">
-                            <div class="">
+                            
+                            <div class="input-perfil">
                                 <label class="">Perfil:</label>
-                                <div class="">
+                                <div class="perfil">
                                     <jsp:useBean class="persistence.PerfilDao" id="perfilDao"/>
                                     <c:forEach items="${perfilDao.listarPerfil}" var="perfil">
                                         <div class="form-check">
@@ -102,8 +107,8 @@
                             </div>
 
                             <!-- Status  -->
-                            <div class="status">
-                                <label class="lbl-status"> Status: </label>
+                            <div class="input-status">
+                                <label> Status: </label>
                                 <div>                                
                                     <label>
                                         <input type="radio" name="status" value="1"

@@ -48,7 +48,7 @@
                                 <tr>
                                     <th> Código</th>
                                     <th> Nome</th>
-                                    <th> Cpf_Cnpj</th>                                    
+                                    <th> CPF_CNPJ</th>                                    
                                     <th> E-mail</th>
                                     <th> Telefone</th>
                                     <th> Status</th>

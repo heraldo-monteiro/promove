@@ -41,16 +41,14 @@
                        
                         
                             <!-- Nome -->
-                            <div class="name">
-                                <jsp:include page="scripts/habilitarCampo.jsp"></jsp:include>
-                                <label class="lbl-name"> Nome: </label>                                
-                                <div class="nome">                                   
-                                    <input type="text"
+                            <div class="input-container">                               
+                                <label> Nome: </label>                                
+                                <div class="nome">     
+                                    <jsp:include page="scripts/habilitarCampo.jsp"></jsp:include>
+                                    <input type="text" class="input-nome" 
                                         name="nome"
-                                        value="${perfil.nome}"                                    
-                                        id="nome"
-                                        class="input-perfil"                                        
-                                        readonly />                                
+                                        value="${perfil.nome}"                     
+                                        readonly/>                                
                                 </div>
                                 <div class="btn-habilit">                                     
                                     <label id="botao_nome" class="lbl-habilit">
@@ -64,8 +62,8 @@
                             </div>            
                             
                             <!-- Status -->             
-                            <div class="status">
-                                <label class="lbl-status"> Status: </label>
+                            <div class="input-status">
+                                <label> Status: </label>
                                 <div>                                
                                     <label>
                                         <input type="radio" name="status" value="1"

@@ -1,18 +1,21 @@
+
 /*============================================================================*/
-.status{ /* atribue estilo em todas as paginas de cadastro*/
+/*  - Atribue estilo em todas as paginas de cadastro
+    - aparencia os botoes das tabelas com os resultados da base de dados 
+*/
+.status{ 
     margin-top: 10px;
-    display: flex;  
+    display: flex;
     width: 72px;
     height: 30px;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     cursor: default;
     text-decoration: none;
     border-radius: 10px;
 }
-
 .status-on{
-    background-color: green;   
+    background-color: green;
 }
 .status-off{
     background-color: rgb(178,34,34);
@@ -20,134 +23,104 @@
 .status-atualizar{
     background-color: rgb(205,133,63);
     color: white;
-    cursor: pointer;    
+    cursor: pointer;
 }
-
 .status-ativar {
-    background-color: green;  
-    cursor: pointer; 
-    text-decoration: none; 
+    background-color: green;
+    cursor: pointer;
+    text-decoration: none;
 }
-
-.status-desativar{   
+.status-desativar{
     background-color: rgb(178,34,34);
-    cursor: pointer; 
+    cursor: pointer;
 }
-
-
 .status-vincular{ /*pagina menu Perfil*/
     background-color: rgb(128,128,0);
     color: white;
     cursor: pointer;
 }
-
-.status-desvincular{ /*pagina menu Perfil*/ 
+.status-desvincular{ /*pagina menu Perfil*/
     width: 90px;
     background-color: rgb(178,34,34);
-    cursor: pointer; 
+    cursor: pointer;
 }
-
 .icon-on .icon-off{
     width: 32px;
     height: 32px;
 }
 
 .btn{
-    min-width: 60px;       
-    margin: 2px;    
+    min-width: 60px;
+    margin: 2px;
 }
 a{
     text-decoration: none !important;
 }
 
-
-
-
 #btn-vincular, #btn-listar, #btn-novo{
-    border-radius: 10px;   
+    border-radius: 10px;
     color: white;
-    width: 120px;    
-    
+    width: 120px;
+
 }
 #btn-listar{
-    background: rgb(128,0,0);        
+    background: rgb(128,0,0);
 }
 
 #btn-vincular, #btn-novo{
-    background: rgb(0,100,0);  
+    background: rgb(0,100,0);
 }
 
-
-
 /*==============================================================================
-    - MENU HOME
-    - Menu desiginado a pagina de boas vindas
+    - MENU HOME | MENU USER
+    - Menu desiginado a pagina de boas vindas e a pagina de usuarios
+    - Menu 
 ------------------------------------------------------------------------------*/
 .btnLogin {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    gap:10px;
+    align-items: center; 
 }
-
-.btn-login{   
-    display: flex; 
+.btn-login{
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     border-radius: 10px;
-    border: 1px  solid #588157 ;   
+    border: 1px  solid #588157 ;
     text-decoration:  none;
-    font-weight: 300;        
-    letter-spacing: 3px; /* Espaçamento entre as letras  do Login*/
+    font-weight: 300;
+    letter-spacing: 2px; /* Espaçamento entre as letras  do Login*/
     padding: 8px 0;
+    background-color: rgb(0,100,0);
 }
 
-.btn-login{
-    background-color: rgb(0,100,0);    
-}
-.btn-login:hover{  
+.btn-login:hover{
     transition: background 0.2s, color 0.2s;
 }
-
-/*==============================================================================
-    - MENU USER
-    - Menu designado aos usuarios aotenticados
-------------------------------------------------------------------------------*/
-.loginMenu{  
+.btnLogout{
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;    
+    justify-content: flex-end;
+    width: 100%;
     padding: 10px;
 }
-.loginMenu a{  
-  border-radius: 50%;   
-  width: 40px;
-  height: 40px;
-  
-}
-
-.logout{
+.btn-logout{
     display: flex;
-    justify-content: flex-end;   
-    width: 100%;    
-    padding: 10px; 
-}
-.btnLogout{    
-    display: flex; 
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 30px;
-  
+
     text-decoration:  none;
     font-weight: 300;
-    transition: background 0.2s; 
+    transition: background 0.2s;
     letter-spacing: 1px;
-    background: #9b2226;    
+    background: #9b2226;
 }
-.btnLogout:hover{  
+.btnLogout:hover{
     text-decoration:  none;
 }
+
+
+

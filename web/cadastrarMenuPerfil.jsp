@@ -44,19 +44,18 @@
                             
                             <!-- Container Nome | Menu -->
                             <div class="nome-menu">    
-                                <div class="campo nome.">  
+                                <div class="campo nome">  
                                     <label>Nome:</label> 
-                                    <input type="text" class="input-nome"
+                                    <input type="text" class="input-nome " style="background-color: #808080"
                                            name="nome"                                                                     
                                            value="${vincularP.nome}"
-                                           readonly                                           
-                                    />
+                                           readonly />
                                 </div> 
 
                                 <!-- Menus Desvinculados -->
                                 <div class="campo menu">  
-                                    <label>Menu:</label> 
-                                    <select name="idMenu" class="select-menu">
+                                    <label> Menu:</label> 
+                                    <select name="idMenu" class="select-menu" >
                                         <option value="">Menus Desvinculados</option>
                                         <c:forEach items="${vincularP.naoMenus}" var="menu">
                                             <c:if test="${menu.status == 1}">

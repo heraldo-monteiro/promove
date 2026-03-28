@@ -11,48 +11,6 @@
   margin: 0 auto; /* centraliza o formulário na tela */
 }
 
-.nome-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-left: 0; /* colado na esquerda */   
-  border-radius: 10px;
-  padding: 5px;
-  background-color: rgb(128,128,0);
-}
-
-.campo {
-  display: flex;
-  align-items: center;
-}
-
-.campo label {
-  width: 80px;
-  font-weight: 700;
-}
-
-.input-nome,
-.select-menu {
-  flex: 1;
-  padding: 5px 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;    
-}
-
-.input-nome {
-  background-color: rgb(128,128,128);
-}
-
-.select-menu {
-  background-color: rgb(143,188,143); 
-}
-
-.btn-vincule-list {
-  margin-top: 10px;
-}
-
-
-
 /* === Tabela === */
 .container {
   width: 100%;
@@ -81,6 +39,11 @@ th, td {
   th, td {
     padding: 6px;
   }
+}
+
+th{
+    font-size: 20px;
+    color: #FFE4B5;   
 }
 
 

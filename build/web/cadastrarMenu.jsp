@@ -39,29 +39,28 @@
                             <h3 class="text-center "> Cadastro de Menus </h3><hr>
                                         
                                 <!-- Nome -->
-                                <div class="nome">
-                                    <label class="form-label">Nome:</label>
-                                    <div class="">
-                                        <input type="text" 
-                                           class=""
+                                <div class="input-container">
+                                    <label> Nome:</label>
+                                    <div class="nome">
+                                        <input type="text" class="input-nome"
                                            name="nome"
                                            value="${menu.nome}"/>  
                                     </div>    
                                 </div>
                                 
                                 <!-- Link -->
-                                <div class="link">
-                                    <label class="">Link:</label>
-                                    <div class="">
-                                        <input type="text"
-                                           class=""
+                                <div class="input-container">
+                                    <label> Link:</label>
+                                    <div class="link">
+                                        <input type="text" class="input-link"
                                            name="link"
                                            value="${menu.link}"/>                                
                                     </div>
                                 </div>
                             <!-- Menu -->
                             <div class="agrupamento-nenu-status">
-                                <div class="menu">
+                                
+                                <div class="input-menu">
                                     <label> Menu:</label>
                                     <div>
                                         <label>
@@ -80,8 +79,8 @@
                                 </div>
                                  
                                 <!-- Sttus  -->
-                                <div class="status">
-                                    <label class="lbl-status">Status:</label>
+                                <div class="input-status">
+                                    <label> Status:</label>
                                     <div>
                                         <label>
                                             <input type="radio" name="status" value="1"
