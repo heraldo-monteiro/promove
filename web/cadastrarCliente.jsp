@@ -16,13 +16,13 @@
         <link rel="stylesheet" href="css/style_menu.css" type="text/css"> 
         <link rel="stylesheet" href="css/style_table.css" type="text/css">
         <link rel="stylesheet" href="css/style_cadastro.css" type="text/css">
-
+        
+        <link rel="stylesheet" href="css/style_alert_cadastro_cliente.css" type="text/css">
+       
         <link rel="stylesheet" href="css/style_footer.css" type="text/css">          
-        <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">     <!-- Style da Tabela -->
-        <link rel="stylesheet" href="css/msg_erro.css" type="text/css">             <!-- Mensagem de Erro -->
-
+        <link rel="stylesheet" href="css/style_jquary-table.css" type="text/css">     <!-- Style da Tabela -->       <!-- Mensagem de Erro -->
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">       
-        <script src="${pageContext.request.contextPath}/scripts/format_cpf_cnpj.jsp"></script>
+       
         <title> Cadsatro de Cliente </title>
     </head>
     <body>
@@ -35,100 +35,102 @@
             </div>     
 
             <div id="conteudo">                
-                <div class="container">  
-                    <form action="gerenciarCliente" method="POST" class="form-cliente"> 
-                        <input type="hidden" name="idCliente" value="${cliente.idCliente}">           
-                        <input type="hidden" name="status" value="${cliente.status}">      
-                        <h3 class="text-center mt-3"> Cadastro de Cliente </h3><hr>
-
-                        <!-- Nome -->
-                        <div class="input-container">
-                            <label> Nome: </label>
-                            <div class="nome">
-                                <input type="text" class="input-nome"
-                                   name="nome"
-                                   value="${cliente.nome}"
-                                   />                                
-                            </div>                            
-                        </div>
-
-                        <!-- Cpf_Cnpj -->
-                        <div class="input-container">                           
-                            <label> CPF-CNPJ: </label>
-                            <div class="cpf-cnpj">   
-                                <jsp:include page="scripts/format_cpf_cnpj.jsp"></jsp:include>
-                                <input type="text" class="input-cpfcnpj"                                      
-                                   name="cpf_cnpj"
-                                   value="${cliente.cpf_cnpj}"    
-                                   maxlength="18"
-                                   oninput="format_cpf_cnpj(this)" > 
-                            </div>                                                         
-                        </div>
-
-                        <!-- Email -->
+                <div class="container">     
                     
-                        <div class="input-container">
-                            <label> Email: </label>
-                            <div class="email">                                
-                                 <input type="text" class="input-email"
-                                   name="email"
-                                   value="${cliente.email}"
-                                   />  
-                            </div>                                                        
-                        </div>
-
-                        <!-- Telefone -->
-                        <div class="input-container">                             
-                            <label> Telefone: </label>
-                            <div class="telefone">                                 
-                                 <jsp:include page="scripts/format_telefone.jsp"></jsp:include>
-                                 <input type="text" class="input-telefone"
-                                   name="telefone"
-                                   value="${cliente.telefone}" 
-                                   maxlength="14"
-                                   oninput="format_telefone(this)" />                                
-                            </div>                                                      
-                        </div>
-
-                        <!-- Status -->
-                        <div class="input-status">
-                            <label> Status: </label>   
-                            <div>
-                                <label>
-                                <input type="radio"
-                                       name="status" value="1"
-                                       <c:if test="${cliente.status == 1}"> checked </c:if> />
-                                       Ativado
-                                </label>
+                    <form action="gerenciarCliente" method="POST"> 
+                        <input type="hidden" name="idCliente" value="${cliente.idCliente}"> 
+                        <h3 class="text-center mt-3"> Cadastro de Cliente </h3>
+                                   
+                        <div class="form-container">
+                            <!-- Nome -->
+                            <div class="input-container">
+                                <label> Nome: </label>
+                                <div class="nome">
+                                    <input type="text" class="input-nome"
+                                       name="nome"
+                                       value="${cliente.nome}"
+                                       required />                                
+                                </div>                            
                             </div>
 
-                            <div>
-                                <label>
+                            <!-- Cpf_Cnpj -->
+                            <div class="input-container">                           
+                                <label> CPF-CNPJ: </label>
+                                <div class="cpf-cnpj">   
+                                    <jsp:include page="scripts/format_cpf_cnpj.jsp"></jsp:include>
+                                    <input type="text" class="input-cpfcnpj"                                      
+                                       name="cpf_cnpj"
+                                       value="${cliente.cpf_cnpj}"    
+                                       maxlength="18"
+                                       oninput="format_cpf_cnpj(this)"
+                                       required /> 
+                                </div>                                                         
+                            </div>
+
+                            <!-- Email -->                   
+                            <div class="input-container">
+                                <label> Email: </label>
+                                <div class="email">                                
+                                     <input type="text" class="input-email"
+                                       name="email"
+                                       value="${cliente.email}" 
+                                       required />  
+                                </div>                                                        
+                            </div>
+
+                            <!-- Telefone -->
+                            <div class="input-container">                             
+                                <label> Telefone: </label>
+                                <div class="telefone">                                 
+                                    <jsp:include page="scripts/format_telefone.jsp"></jsp:include>
+                                    <input type="text" class="input-telefone"
+                                      name="telefone"
+                                      value="${cliente.telefone}" 
+                                      maxlength="14"
+                                      oninput="format_telefone(this)" 
+                                      required /> 
+                                </div>                                                      
+                            </div>
+
+                            <!-- Status -->
+                            <div class="input-status">
+                                <label> Status: </label>   
+                                <div>
+                                    <label class="form-check-label">
                                     <input type="radio"
-                                           name="status" value="0"
-                                    <c:if test="${cliente.status == 0}"> checked </c:if> />
-                                Desativado
-                                </label>
+                                           name="status" value="1"
+                                           <c:if test="${cliente.status == 1}"> checked </c:if> />
+                                           Ativo
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label class="form-check-label">
+                                        <input type="radio"
+                                               name="status" value="0"
+                                        <c:if test="${cliente.status == 0}"> checked </c:if> />
+                                        Inativo
+                                    </label>
+                                </div>  
+                            </div>                           
+
+                            <!-- Salvar  |  Cancelar -->
+                            <div class="btn-form">
+                                <div class="btn-salvar">
+                                    <button> Salvar </button>                                    
+                                </div>  
+
+                                <div class="btn-cancelar">
+                                    <a href="gerenciarCliente?acao=listar"
+                                       accesskey="" role="button"> Cancelar </a>                                
+                                </div> 
                             </div>  
-                        </div>                            
-
-                        <!-- Salvar  |  Cancelar -->
-                        <div class="btn-form">
-                            <div class="btn-salvar">
-                                <button> Salvar </button>                                    
-                            </div>  
-
-                            <div class="btn-cancelar">
-                                <a href="gerenciarCliente?acao=listar"
-                                   accesskey="" role="button"> Cancelar </a>                                
-                            </div> 
-                        </div>   
-
+                        </div>
                     </form>              
                 </div> <!-- fim da div Class CONTAINER-->  
             </div> <!-- fim da div CONTEÚDO-->    
         </div> <!-- fim da div CONTAINER-->            
         <script src="js/jquery-3.6.0.min.js"></script>          
-        <script src="bootstrap/bootstrap.min.js"></script>        
+        <script src="bootstrap/bootstrap.min.js"></script>         
     </body>
 </html>

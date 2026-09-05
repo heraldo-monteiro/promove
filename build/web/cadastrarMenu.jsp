@@ -34,10 +34,12 @@
             </div><!-- Fim da div HEADER--> 
             <div id="conteudo">               
                 <div class="container">   
-                    <form action="gerenciarMenu" method="POST" class="form-menu"  style="min-height: 392px">                             
+                    <form action="gerenciarMenu" method="POST" style="min-height: 392px">                             
                             <input type="hidden" name="idMenu" value="${menu.idMenu}" />                        
-                            <h3 class="text-center "> Cadastro de Menus </h3><hr>
-                                        
+                            <h3 class="text-center "> Cadastro de Menus </h3>
+                           
+                        
+                        <div class="form-container">
                                 <!-- Nome -->
                                 <div class="input-container">
                                     <label> Nome:</label>
@@ -63,14 +65,14 @@
                                 <div class="input-menu">
                                     <label> Menu:</label>
                                     <div>
-                                        <label>
+                                        <label class="form-check-label">
                                             <input type="radio" name="exibir" value="1"
                                                 <c:if test="${menu.exibir == 1}">checked</c:if> />
                                             Exibir
                                         </label>
                                     </div>
                                     <div>
-                                        <label>
+                                        <label class="form-check-label">
                                             <input type="radio" name="exibir" value="0"
                                                 <c:if test="${menu.exibir == 0}">checked</c:if> />
                                             Não exibir
@@ -82,14 +84,14 @@
                                 <div class="input-status">
                                     <label> Status:</label>
                                     <div>
-                                        <label>
+                                        <label class="form-check-label">
                                             <input type="radio" name="status" value="1"
                                                 <c:if test="${menu.status == 1}">checked</c:if> />
                                             Ativado
                                         </label>
                                     </div>                                            
                                     <div>
-                                        <label>
+                                        <label class="form-check-label">
                                             <input type="radio" name="status" value="0"
                                                 <c:if test="${menu.status == 0}">checked</c:if> />
                                             Desativado
@@ -108,6 +110,7 @@
                                        accesskey="" role="button"> Cancelar </a>
                                 </div>
                             </div> 
+                        <div>
                         </form>                 
                 </div> <!-- fim da div Class CONTAINER-->  
             </div> <!-- fim da div CONTEÚDO-->    

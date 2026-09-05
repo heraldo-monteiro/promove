@@ -150,8 +150,7 @@ public class UsuarioDao {
         ps.executeUpdate();
         
         ConexaoFactory.close(conexao);
-        return true;
-        
+        return true;        
     }
     
      public boolean desativarUsuario(Usuario usuario) throws SQLException{

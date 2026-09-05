@@ -16,12 +16,12 @@
     </head>
     <body>
         <main id="container">           
-            <form id="login_form" action="gerenciarLogin" method="POST">                
-
+            <form id="login_form" action="gerenciarLogin" method="POST">  
+                
                 <div id="form_header">
                     <h1>Login</h1>                    
                 </div>    
-                <div id="input">
+                <div class="input-container">
                     <!-- Campo Usuário -->
                     <div class="input-box">
                         <label for="name">Usuário</label>

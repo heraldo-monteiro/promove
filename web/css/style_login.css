@@ -65,8 +65,7 @@ da aplicação.
     bottom: 5px;
     border-radius: 5px;    
 }
-
-#input{
+.input-container{
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,34 +1,24 @@
 
-/*==============================================================================*/
-/* === Formulário === */
-.form-table { 
-  width: 100%;
-}
-
-.form {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto; /* centraliza o formulário na tela */
-}
-
 /* === Tabela === */
-.container {
-  width: 100%;
-  overflow-x: auto; /* evita transbordamento horizontal */
-}
 .table {
   margin: 10px;
-  width: 100%;
+  width: 100%;  
   table-layout: fixed; /* impede colunas de estourarem o container */
   border-collapse: collapse;
   word-wrap: break-word;
 }
+tbody{
+    color: whitesmoke; /* cor das letras*/     
+}
+th{    
+    font-size: 16px;
+    color: #FFE4B5;       
+    white-space: nowrap; /*Evita que o texte quebre*/          
+}
 
 th, td {
-  white-space: normal; /* permite quebra de linha */
   word-break: break-word;
-  text-align: left;
-  vertical-align: middle;
+  text-align: left;  
 }
 
 /* Opcional: ajuste para telas pequenas */
@@ -36,14 +26,4 @@ th, td {
   .table {
     font-size: 14px;
   }
-  th, td {
-    padding: 6px;
-  }
 }
-
-th{
-    font-size: 20px;
-    color: #FFE4B5;   
-}
-
-

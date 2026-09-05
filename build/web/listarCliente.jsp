@@ -86,16 +86,17 @@
                                     </td>
 
                                     <td class="acoes-btn"> 
+                                        <jsp:include page="scripts/ativar_desativar_cliente.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${cliente.status == 1}">
                                                 <div class="status-desativar status"
-                                                     onclick="">
+                                                    onclick="confirmDesativar('${cliente.idCliente}', '${cliente.nome}')">
                                                     Desativar
                                                 </div>                                            
                                             </c:when>      
                                             <c:otherwise>
                                                 <div class="status-ativar status"
-                                                     onclick="">
+                                                    onclick="confirmAtivar('${cliente.idCliente}', '${cliente.nome}')">
                                                     Ativar
                                                 </div>
                                             </c:otherwise>
@@ -115,45 +116,44 @@
         <!-- 4º --><script src="datatables/dataTables.bootstrap4.min.js"></script>             
         <script>
             $(document).ready(function () {
-                $('#listarCliente').dataTable({
+                $('#listarCliente').dataTable({            
                     columnDefs: [
                         {width: '0px', targets: 0}, // Código
-                        {width: '200px', targets: 1}, // Nome
-                        {width: '0px', targets: 2}, // Cpf_Cnpj
-                        {width: '0px', targets: 3}, // Email
-                        {width: '0px', targets: 4}, // Telefone
+                        {width: '190px', targets: 1}, // Nome
+                        {width: '100px', targets: 2}, // CPF-CNPJ
+                        {width: '190px', targets: 3}, // Email
+                        {width: '90px', targets: 4}, // Telefone
                         {width: '0px', targets: 5}, // Status
-                        {width: '0px', targets: 6}, // Atualizar
-                        {width: '0px', targets: 7}  // Ação
+                        {width: '90px', targets: 6}, // Gerenciar
+                        {width: '90px', targets: 7}  // Ação
                     ],
                     autoWidth: false,
 
                     dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',
-                    /*  
-                     l  =  lengthMenu
-                     f  =  sSearch (pesquisa)           
-                     t  =  Tabela centraliza entre o bloco1 e bloco2            
-                     i  =  sInfo 
-                     p  =  oPaginate (paginação)                        
-                     */
+                    // l  =  lengthMenu
+                    // f  =  sSearch (pesquisa)           
+                    // t  =  Tabela centraliza entre o bloco1 e bloco2            
+                    // i  =  sInfo 
+                    // p  =  oPaginate (paginação) 
+                    
                     "ordering": false, /* remove o icone de ordem crescente ou decrescente */
                     "bJQueryUI": true,
-                    "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "Todos"]],
+                    "lengthMenu": [[-1], [""]],
                     "oLanguage": {
                         "sProcessing": "Processando",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sLengthMenu": "",
                         "sZeroRecords": "Não foram encontrados resultados",
-                        "sInfo": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrado de 0 até 0 de 0 registros",
+                        "sInfo": "Total de registros: _TOTAL_",
+                        "sInfoEmpty": "",
                         "sInfoFiltered": "",
                         "sInfoPostFix": "",
                         "sSearch": "Pesquisar",
                         "sUrl": "",
                         "oPaginate": {
-                            "sFirst": "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext": "Próximo",
-                            "sLast": "Último"
+                            "sFirst": "",
+                            "sPrevious": "",
+                            "sNext": "",
+                            "sLast": ""
                         }
                     }
                 });

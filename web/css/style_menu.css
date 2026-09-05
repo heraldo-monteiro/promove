@@ -45,16 +45,19 @@
 
 /*Informação dos usuarios logado no sistema*/
 .usuario-info { 
-  display: flex;              /* coloca os dois na mesma linha */
   align-items: center;        /* alinha verticalmente */
-  gap: 15px;                  /* espaço entre o nome e o botão */
-  
+  background: #708090;
+  display: flex;              /* coloca os dois na mesma linha */  
+  gap: 15px;                  /* espaço entre o nome e o botão */  
   font-family: Arial, sans-serif;
+  
 }
 h6{
     width: 920px;
     margin: 0 10px;
 }
+
+
 
 /*==============================================================================
     - Barra de Menu da Pagina Home 
@@ -218,3 +221,14 @@ body {
     align-items: center;
     justify-content: space-around;
 }
+
+/*==============================================================================
+    - Testes de Stilização.
+------------------------------------------------------------------------------*/
+.usuario-info{
+
+
+
+}
+
+/*----------------------------------------------------------------------------*/

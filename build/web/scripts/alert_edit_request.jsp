@@ -25,8 +25,7 @@
             </div>                
 <%   
         }
-        request.removeAttribute("msg");          
-     
+        request.removeAttribute("msg");   
     }    
         
 %>     

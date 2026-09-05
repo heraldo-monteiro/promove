@@ -1,5 +1,6 @@
 
 <script type="text/javascript">
+    
     function format_cpf_cnpj(input) {
         let value = input.value.replace(/\D/g, '');
         

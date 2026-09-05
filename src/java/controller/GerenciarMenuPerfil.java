@@ -99,6 +99,7 @@ public class GerenciarMenuPerfil extends HttpServlet {
                 message = "Erro!"+erro.getMessage();
                 erro.printStackTrace();
             }
+            
             out.print(
             "<script type='text/javascript'>"+                    
                     "location.href='gerenciarMenuPerfil?acao=vincular&idPerfil="+idPerfil+"';"+

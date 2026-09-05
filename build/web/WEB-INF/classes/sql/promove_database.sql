@@ -26,9 +26,9 @@ ENGINE = InnoDB;
 INSERT INTO `perfil` VALUES 
 	(1,'Administrador',1),
 	(2,'Gerenciador',1),
-	(3,'Suporte',1),
-	(4,'Usuario',1),
-	(5,'Convidado',1);
+	(3,'Supervisor',1),
+	(4,'Suporte',1),
+	(5,'Usuario',1);
 
 -- -----------------------------------------------------
 -- Table `promove_database`.`Usuario`
@@ -106,6 +106,10 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Menu_Perfil` (
 ENGINE = InnoDB;
 INSERT INTO `menu_perfil` VALUES
     (1,1),
+    (1,2),
+    (1,3),
+    (1,4),
+    (1,5),
     (2,1),
     (3,1),
     (4,1),

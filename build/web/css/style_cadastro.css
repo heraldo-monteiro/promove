@@ -4,17 +4,34 @@
     - cada formulario devido que seu tramanho passa ser diferente em cada pagina
 ------------------------------------------------------------------------------*/
 form {
-    margin: 10px;
-    background-color: rgb(143,133,0);
+    margin: 10px;  
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 0;   
     border-radius: 10px;
     position: relative;
-    max-width: 320px;
+    max-width: 500px;
     min-width: 430px;
-    min-height: 495px;
+    min-height: 490px;     
+} 
+form{
+    background: graytext;
+    color: #2F4F4F;
+ 
+}
+form h3{
+    font-size: 30px;
+    font-weight:700; 
+    color: rgb(140,230,140);   
+
+}
+
+.form-container{
+    background-color: #A9A9A9;   
+    min-height: 430px;
+    padding: 10px;
+    border-radius: 10px;
 }
     
 /*==============================================================================
@@ -57,11 +74,11 @@ input { /* Atribuidos a todos os inputs*/
 .input-container label {
     margin-top: 5px;
 }
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
+
+input[type="checkbox"] { 
+    position: absolute;
 }
+
 input[type="radio"] {  
     cursor: pointer;
 }
@@ -69,7 +86,7 @@ input[type="radio"] {
 .exibir-senha {
     position: absolute;
     right: 50px;      /* entra dentro do input */
-    top: 54%;
+    top: 47.5%;   /* +% vome para baixo | -% vome para cima */
     transform: translateY(-20%);
     cursor: pointer;
     color: #666;
@@ -78,7 +95,29 @@ input[type="radio"] {
     font-size: 20px;
     cursor: pointer;    
     position: absolute;
-    right: 52.5%;    
+    right: 53.5%;    /* < +% move para esquerda < | -% > move para doreita  */
+}
+
+.nome {
+    position: relative;
+}
+
+.input-nome{
+    width:  100%;
+    padding-right:  50px;
+}
+.lbl-status{
+   margin-top: 10px;
+}
+
+.habilitar-nome {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 
 /*==============================================================================
@@ -142,7 +181,7 @@ input[type="radio"] {
   margin-left: 0; /* colado na esquerda */   
   border-radius: 10px;
   padding: 5px;
-  background-color: rgb(128,128,0);
+  
 }
 .campo {
   display: flex;

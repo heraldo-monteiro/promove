@@ -5,9 +5,9 @@
 --%>
 
 <script>
-    function habilitarCampo(idCampo, checkbox) {
-        const campo = document.getElementById(idCampo);
-        const botao = document.getElementById('botao_nome');
+    function habilitarCampo(id,checkbox) {
+        const campo = document.getElementById(id);
+        const botao = document.getElementById('nome');
 
         if (checkbox.checked) {
             campo.removeAttribute('readonly');

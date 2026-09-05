@@ -41,8 +41,8 @@ public class ClienteDao {
         ConexaoFactory.close(conexao);
         return clientes;
     }
-    
-      /*==========================================================================
+
+    /*==========================================================================
         - Metodo Registrar Cliente
         - Este metodo tem a função de efetua o cadatros de novos clientes
         - no banco de dados.
@@ -60,6 +60,7 @@ public class ClienteDao {
             ps.setString(3, cliente.getEmail());
             ps.setString(4, cliente.getTelefone());
             ps.setInt(5, cliente.getStatus());  
+            
         }else{
             sql = "UPDATE cliente SET nome = ?, cpf_cnpj = ?, email = ?, telefone = ?, status = ? WHERE idCliente = ? ";
             
@@ -69,15 +70,13 @@ public class ClienteDao {
             ps.setString(3, cliente.getEmail());
             ps.setString(4, cliente.getTelefone());
             ps.setInt(5, cliente.getStatus());
-            ps.setInt(6, cliente.getIdCliente());    
-            
+            ps.setInt(6, cliente.getIdCliente());  
         }         
         ps.executeUpdate();       
         ConexaoFactory.close(conexao);
         return true;
     }
-    
-    
+       
     /*==========================================================================
         - Este metodo tem como função de carregar todos os clientes
         - registrados na base de dados.
@@ -97,29 +96,25 @@ public class ClienteDao {
             cliente.setEmail(rs.getString("email"));
             cliente.setTelefone(rs.getString("telefone"));
             cliente.setStatus(rs.getInt("status"));           
-            
         }
         ConexaoFactory.close(conexao);
         return cliente;
         
     }
-
+    //==========================================================================
     public boolean ativarCliente(Cliente cliente) throws SQLException{
-        sql = "UPDATE cliente SET satus = 1 WHERE idCliente = ?";
-        conexao = ConexaoFactory.conectar();
-        
+        sql = "UPDATE cliente SET status = 1 WHERE idCliente = ?";
+        conexao = ConexaoFactory.conectar();        
         ps = conexao.prepareStatement(sql);
         ps.setInt(1, cliente.getIdCliente());
         ps.executeUpdate();
         
         ConexaoFactory.close(conexao);
-        return true;
-        
+        return true;        
     } 
     
     public boolean desativarCliente(Cliente cliente)throws SQLException{
-        sql = "UPDATE cliente SET status = 0 WHERE idCliente = ?";
-        
+        sql = "UPDATE cliente SET status = 0 WHERE idCliente = ?";        
         conexao = ConexaoFactory.conectar();
         ps = conexao.prepareStatement(sql);
         ps.setInt(1, cliente.getIdCliente());

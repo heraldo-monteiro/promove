@@ -19,7 +19,7 @@
         <ul> <!-- Lista de menus -->           
             <c:if test="${usuarioLogado != null && usuarioLogado.perfil != null}">
                 <c:forEach items="${usuarioLogado.perfil.menus}" var="menu">
-                    <c:if test="${menu.exibir == 1}">
+                    <c:if test="${menu.exibir == 1 && menu.status == 1}">
                         <li>
                             <a href="${menu.link}">${menu.nome}</a>
                         </li>                            

@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Usuario` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 INSERT INTO `usuario` VALUES
-	(1,'2025-10-10','Administrador','admin','admin',1,1),
-        (2,'2026-03-20','Teste System','Teste','teste',1,5);
+    (1,'2025-10-10','Administrador','admin','admin',1,1),
+    (2,'2026-03-20','Teste System','Teste','teste',1,5);
 
 
 -- -----------------------------------------------------
@@ -69,21 +69,21 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Menu` (
   UNIQUE INDEX `link_UNIQUE` (`link` ASC) )
 ENGINE = InnoDB;
 INSERT INTO `menu` VALUES
-        (1,'Home','index.jsp',1,1),
-	(2,'Menu','gerenciarMenu?acao=listar',1,1),
-	(3,'Perfil','gerenciarPerfil?acao=listar',1,1),
-	(4,'Usuario','gerenciarUsuario?acao=listar',1,1),
-	(5,'Cliente','gerenciarCliente?acao=listar',1,1),
-	(6,'alterar Menu','gerenciarMenu?acao=alterar',0,1),
-	(7,'alterar Perfil','gerenciarPerfil?acao=alterar',0,1),
-	(8,'alterar Usuario','gerenciarUsuario?acao=alterar',0,1),	
-	(9,'ativar Menu','gerenciarMenu?acao=ativar',0,1),
-	(10,'ativar Perfil','gerenciarPerfil?acao=ativar',0,1),
-	(11,'ativar Usuario','gerenciarUsuario?acao=ativar',0,1),	
-	(12,'desativar Menu','gerenciarMenu?acao=desativar',0,1),
-	(13,'desativar Perfil','gerenciarPerfil?acao=desativar',0,1),        
-	(14,'desativar Usuario','gerenciarUsuario?acao=desativar',0,1),
-        (15,'Cadastro','cadastro.jsp',0,1);
+    (1,'Home','index.jsp',1,1),
+    (2,'Menu','gerenciarMenu?acao=listar',1,1),
+    (3,'Perfil','gerenciarPerfil?acao=listar',1,1),
+    (4,'Usuario','gerenciarUsuario?acao=listar',1,1),
+    (5,'Cliente','gerenciarCliente?acao=listar',1,1),
+    (6,'alterar Menu','gerenciarMenu?acao=alterar',0,1),
+    (7,'alterar Perfil','gerenciarPerfil?acao=alterar',0,1),
+    (8,'alterar Usuario','gerenciarUsuario?acao=alterar',0,1),	
+    (9,'ativar Menu','gerenciarMenu?acao=ativar',0,1),
+    (10,'ativar Perfil','gerenciarPerfil?acao=ativar',0,1),
+    (11,'ativar Usuario','gerenciarUsuario?acao=ativar',0,1),	
+    (12,'desativar Menu','gerenciarMenu?acao=desativar',0,1),
+    (13,'desativar Perfil','gerenciarPerfil?acao=desativar',0,1),        
+    (14,'desativar Usuario','gerenciarUsuario?acao=desativar',0,1),
+    (15,'Cadastro','cadastro.jsp',0,1);
 
 -- -----------------------------------------------------
 -- Table `promove_database`.`Menu_Perfil`
@@ -118,7 +118,9 @@ INSERT INTO `menu_perfil` VALUES
     (10,1),
     (11,1),
     (12,1),
-    (13,1);
+    (13,1),
+    (14,1),
+    (15,1);
 
 -- -----------------------------------------------------
 -- Table `promove_database`.`Cliente`
@@ -133,8 +135,6 @@ CREATE TABLE IF NOT EXISTS `promove_database`.`Cliente` (
   PRIMARY KEY (`idCliente`),
   UNIQUE INDEX `cpf_UNIQUE` (`cpf_cnpj` ASC) )
 ENGINE = InnoDB;
-
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

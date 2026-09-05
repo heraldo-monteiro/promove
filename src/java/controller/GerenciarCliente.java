@@ -15,180 +15,174 @@ import persistence.ClienteDao;
 
 @WebServlet(name = "GerenciarCliente", urlPatterns = {"/gerenciarCliente"})
 public class GerenciarCliente extends HttpServlet {
-
     RequestDispatcher dispatcher = null;
     ClienteDao cdao = null;
     Cliente cliente = null;
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
-
         String acao = request.getParameter("acao");
         String idCliente = request.getParameter("idCliente");
         String message = "";
-
+        
         cdao = new ClienteDao();
         cliente = new Cliente();
 
         try {
-            // Listar ----------------------------------------------------------
+            //Listar
             if (acao.equals("listar")) {
                 ArrayList<Cliente> clientes = new ArrayList<>();
                 clientes = cdao.getListarCliente();
-                dispatcher = getServletContext().getRequestDispatcher("/listarCliente.jsp");
                 request.setAttribute("clientes", clientes);
+                dispatcher = getServletContext().getRequestDispatcher("/listarCliente.jsp");                
                 dispatcher.forward(request, response);
+                return;
 
-                // Alterar ---------------------------------------------------------
+            // Alterar
             } else if (acao.equals("alterar")) {
                 cliente = cdao.getCarregarCliente(Integer.parseInt(idCliente));
-                if (cliente.getIdCliente() > 0) {
-                    dispatcher = getServletContext().getRequestDispatcher("/cadastrarCliente.jsp");
+                if (cliente.getIdCliente() > 0){
                     request.setAttribute("cliente", cliente);
+                    dispatcher = getServletContext().getRequestDispatcher("/cadastrarCliente.jsp");                    
                     dispatcher.forward(request, response);
-
+                    exibirMessage(request, response);
                 } else {
                     message = "Cliente não encontrado na base de dados!";
                 }
 
-                // Ativar ----------------------------------------------------------
-            } else if (acao.equals("ativar")) {
+            // Ativar
+            } else if (acao.equals("ativar")){
                 cliente.setIdCliente(Integer.parseInt(idCliente));
                 if (cdao.ativarCliente(cliente)) {
-                    message = "Cliente ativado com sucesso!";
+                    response.sendRedirect("gerenciarCliente?acao=listar");
                 } else {
                     message = "Falha ao ativar este cliente!";
                 }
 
-                // Desativar -------------------------------------------------------
+            // Desativar
             } else if (acao.equals("desativar")) {
                 cliente.setIdCliente(Integer.parseInt(idCliente));
                 if (cdao.desativarCliente(cliente)) {
-                    message = "Cliente desativado com sucesso!";
+                    response.sendRedirect("gerenciarCliente?acao=listar");
                 } else {
                     message = "Falha ao desativar este cliente!";
-                }
-
-                //------------------------------------------------------------------                    
+                }                       
             } else {
                 response.sendRedirect("index.jsp");
             }
-
+            
         } catch (SQLException erro) {
             message = "Erro!:" + erro.getMessage();
             erro.printStackTrace();
         }
-
-        out.println(
+        
+        out.print(
             "<script type='text/javascript'>"+
-                 "alert('" + message + "');"+
-                 "location.href='gerenciarCliente?acao=listar';"+
+                "alert('"+ message +"');"+
+                "location.href='gerenciarCliente?acao=listar';"+
             "</script>"
-        );
+        ); 
     }
-
-    //==========================================================================
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        response.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("UTF-8");
 
         String idCliente = request.getParameter("idCliente");
         String nome = request.getParameter("nome");
         String cpf_cnpj = request.getParameter("cpf_cnpj");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
-        String status = request.getParameter("status");
-        String message = "";
-        String msg = "";
-
+        String status = request.getParameter("status"); 
+        String msgAlert = "";
+        String msgSucesso = "";
         cliente = new Cliente();
         cdao = new ClienteDao();
-
+        
         // idCliente
         if (!idCliente.isEmpty()) {
             cliente.setIdCliente(Integer.parseInt(idCliente));
         }
-
-        /*----------------------------------------------------------------------
-          - Nome */
-        if (nome.equals("") || nome.isEmpty()) {
-            request.setAttribute("msg", "Informe o nome do cliente!");
+    
+        // Nome 
+        if (nome == null || nome.trim().isEmpty()) {
+            request.setAttribute("msgAlert", "Informe o nome do cliente!");           
             exibirMessage(request, response);
-
+            return;
         } else {
-            cliente.setNome(nome);
+            cliente.setNome(nome);            
         }
-
-        /*----------------------------------------------------------------------
-          - Cpf_Cnpj */
-        if (cpf_cnpj.equals("") || cpf_cnpj.isEmpty()) {
-            request.setAttribute("msg", "Informe o CPF ou CNPJ do cliente!");
+      
+        // Cpf_Cnpj
+        if (cpf_cnpj == null || cpf_cnpj.trim().isEmpty()) {
+            request.setAttribute("msgAlert", "Informe o CPF ou CNPJ do cliente!");       
             exibirMessage(request, response);
+            return;
         } else {
-            cliente.setCpf_cnpj(cpf_cnpj);
+            cliente.setCpf_cnpj(cpf_cnpj);            
         }
-
-        /*----------------------------------------------------------------------
-          - Email */
-        if (email.equals("") || email.isEmpty()) {
-            request.setAttribute("msg", "Informe o endereço de email!");
+       
+        // Email
+        if (email == null || email.trim().isEmpty()) {
+            request.setAttribute("msgAlert", "Informe o endereço de email!");
             exibirMessage(request, response);
+            return;
         } else {
             cliente.setEmail(email);
         }
-
-        /*----------------------------------------------------------------------
-          - Telefone */
-        if (telefone.equals("") || telefone.isEmpty()) {
-            request.setAttribute("msg", "Informe um mumero de contato!");
+       
+        // Telefone
+        if (telefone == null || telefone.trim().isEmpty()) {
+            request.setAttribute("msgAlert", "Informe um mumero de contato!");
             exibirMessage(request, response);
+            return;
         } else {
             cliente.setTelefone(telefone);
         }
-
-        /*----------------------------------------------------------------------
-          - Status */
-        if (status.equals("") || status.isEmpty()) {
-            request.setAttribute("msg", "Preencha o status do cliente");
+       
+        // Status
+        if (status == null || status.trim().isEmpty()) {
+            request.setAttribute("msgAlert", "Preencha o status do cliente");
             exibirMessage(request, response);
+            return;
         } else {
             cliente.setStatus(Integer.parseInt(status));
         }
 
         /*======================================================================
-        - CADASTRO DE CLIENTE    */
+        - CADASTRO DE CLIENTE    */ 
         try {
             if (cdao.registrarCliente(cliente)) {
-                message = "Registro salvo com sucesso!";
+                msgSucesso = "Cliente cadastrado com sucesso!";
             } else {
-                message = "Erro!:  Falha ao salvar o registro!";
+                msgAlert = "Falha ao cadastrar cliente!";
             }
 
         } catch (SQLException erro) {
-            message = "Erro!: " + erro.getMessage();
+            request.setAttribute("erro", "Erro: " + erro.getMessage());
             erro.printStackTrace();
-        }
-
-        out.println(
-                "<script type='text/javascript'>"
-                + "alert('" + message + "');"
-                + "location.href='gerenciarCliente?acao=listar';"
-                + "</script>"
-        );
-    }
+        }    
+        out.print(
+            "<script type='text/javascript'>"+
+                "alert('"+ msgSucesso +"');"+
+                "location.href='gerenciarCliente?acao=listar';"+
+            "</script>"
+        );        
+     }
 
     /*==========================================================================
     - MENSSAGENS
      */
     private void exibirMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastrarCliente.jsp");
+        dispatcher = getServletContext().getRequestDispatcher("/cadastrarCliente.jsp");
         dispatcher.forward(request, response);
 
     }
-
 }

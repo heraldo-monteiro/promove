@@ -60,7 +60,7 @@
                                 <th> Login</th>
                                 <th> Senha</th>
                                 <th> Status</th>     
-                                <th> Atualizar</th>
+                                <th> Gerenciar</th>
                                 <th> Ação</th>
                             </tr>                         
                         </thead>
@@ -94,7 +94,7 @@
                                             <div class="status-atualizar status"> Atualizar </div> 
                                         </a>  
                                     </td> 
-                                    <td class="acoes-btn"> 
+                                    <td> 
                                         <jsp:include page="scripts/ativar_desativar_usuario.jsp"></jsp:include>
                                         <c:choose>
                                             <c:when test="${usuario.status == 1}">
@@ -124,49 +124,44 @@
             <!-- 4º --><script src="datatables/dataTables.bootstrap4.min.js"></script>             
         <script>
             $(document).ready(function () { 
-                $('#listarUsuario').dataTable({                      
+                $('#listarUsuario').dataTable({   
                     columnDefs: [
-                        { width: '0px',  targets: 0 }, // Código
-                        { width: '200px', targets: 1 }, // Nome
-                        { width: '0px', targets: 2 }, // Perfil
-                        { width: '0px', targets: 3 }, // Cadastrado
-                        { width: '100px', targets: 4 }, // Login
-                        { width: '0px', targets: 5 }, // Senha
-                        { width: '0px', targets: 6 }, // Status
-                        { width: '0px', targets: 7 }, // Atualizar
-                        { width: '0px',  targets: 8 }  // Ação
-                     ],
+                        {width: '10px', targets: 0},     // Código
+                        {width: '100px', targets: 1},   // Nome
+                        {width: '100px', targets: 2},   // Perfil
+                        {width: '100px', targets: 3},   // Registro
+                        {width: '100px', targets: 4},     // Login
+                        {width: '100px', targets: 5},   // Senha
+                        {width: '100px', targets: 6},   // Status
+                        {width: '100px', targets: 7},   // Gerenciar
+                        {width: '100px', targets: 8}    // Ação
+                    ],
                     autoWidth: false,
+                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',
+                    // l  =  lengthMenu
+                    // f  =  sSearch (pesquisa)           
+                    // t  =  Tabela centraliza entre o bloco 1 e bloco 2            
+                    // i  =  sInfo 
+                    // p  =  oPaginate (paginação)  
                     
-                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
-                    /*  
-                        l  =  lengthMenu
-                        f  =  sSearch (pesquisa)           
-                        t  =  Tabela centraliza entre o bloco1 e bloco2            
-                        i  =  sInfo 
-                        p  =  oPaginate (paginação)                        
-                    */     
-                   
-                   
-                   
                     "ordering": false,   /* remove o icone de ordem crescente ou decrescente */                 
                     "bJQueryUI": true,
-                    "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "Todos"]],                                       
+                    "lengthMenu": [[-1], [""]],
                     "oLanguage": {
                         "sProcessing": "Processando",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sLengthMenu": "",
                         "sZeroRecords": "Não foram encontrados resultados",
-                        "sInfo": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrado de 0 até 0 de 0 registros",
+                        "sInfo": "Total de registros: _TOTAL_",
+                        "sInfoEmpty": "",
                         "sInfoFiltered": "",
                         "sInfoPostFix": "",
                         "sSearch": "Pesquisar",
                         "sUrl": "",
                         "oPaginate": {
-                            "sFirst": "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext": "Próximo",
-                            "sLast": "Último"
+                            "sFirst": "",
+                            "sPrevious": "",
+                            "sNext": "",
+                            "sLast": ""
                         }
                     }
                 });

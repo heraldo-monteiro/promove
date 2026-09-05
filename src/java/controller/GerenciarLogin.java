@@ -53,7 +53,7 @@ public class GerenciarLogin extends HttpServlet {
         GerenciarLogin.resposta = response;        
         
          // === Validação Login ===
-        if(login.equals("") || login.isEmpty()){
+        if(login == null || login.trim().isEmpty()){
             request.setAttribute(msg, "Usuário ou senha invalido!");
             request.setAttribute("loginDigitado", login);
             despachar = request.getRequestDispatcher("login.jsp");      // Teste
@@ -64,9 +64,9 @@ public class GerenciarLogin extends HttpServlet {
         }
         
         // === Validação Senha ===
-        if(senha.equals("") || senha.isEmpty()){
+        if(senha == null || senha.trim().isEmpty()){
             request.setAttribute(msg, "Campo usuário ou senha invalido!");
-            request.setAttribute("loginDigitado", login);
+            request.setAttribute("loginDigitado", senha);
             despachar = request.getRequestDispatcher("login.jsp");      // Teste
             despachar.forward(request, response);                       // Teste
             return; // Teste   
@@ -93,7 +93,7 @@ public class GerenciarLogin extends HttpServlet {
             // Erro no banco de dados
             request.setAttribute("msg", "Erro: "+erro.getMessage());    // Teste
             request.setAttribute("loginDigitado", login);               // Teste
-            despachar = request.getRequestDispatcher("home.jsp");      // Teste
+            despachar = request.getRequestDispatcher("home.jsp");       // Teste
             despachar.forward(request, response);                       // Teste
             erro.printStackTrace(); 
         }              
@@ -108,18 +108,18 @@ public class GerenciarLogin extends HttpServlet {
             HttpSession sessao = request.getSession();
             
             if(sessao.getAttribute("usuarioLogado") == null){
-                request.setAttribute("msg", "Usuário não altenticado!");
+                request.setAttribute("msg", "Usuário não autenticado!");
                 response.sendRedirect("login.jsp");
             }else{
                 String uri = request.getRequestURI(); // idenciticador universal de recursos
                 String queryString = request.getQueryString(); // retorna tudo apos o sinal de ' ? '.
-                if(queryString == null){
-                    uri += "?" + queryString;                   
+                if(queryString != null){
+                    uri += "?" + queryString;                
                 }
                 
                 usuario = (Usuario)request.getSession().getAttribute("usuarioLogado");
                 if(usuario == null){
-                    request.setAttribute("msg", "Usuário não altenticado!");
+                    request.setAttribute("msg", "Usuário não autenticado!");
                     response.sendRedirect("login.jsp");
                 }else{
                     boolean possuiAcesso = false;
@@ -130,7 +130,7 @@ public class GerenciarLogin extends HttpServlet {
                         }
                     }                    
                     if(!possuiAcesso){
-                        request.setAttribute("msg", "Usuário não altorizado!");
+                        request.setAttribute("msg", "Usuário não autorizado!");
                     }
                 }                
             }
@@ -152,7 +152,7 @@ public class GerenciarLogin extends HttpServlet {
         try {
             HttpSession sessao = request.getSession();
             if(sessao.getAttribute("usuarioLogado") == null){
-                sessao.setAttribute("msg", "Usuário não altenticado!");
+                sessao.setAttribute("msg", "Usuário não autenticado!");
                 response.sendRedirect("login.jsp");                
             }else{
                 String uri = request.getRequestURI();
@@ -162,7 +162,7 @@ public class GerenciarLogin extends HttpServlet {
                 }
                 usuario = (Usuario)request.getSession().getAttribute("usuarioLogado");
                 if(usuario == null){
-                    sessao.setAttribute("msg", "Usuário não altenticado!");
+                    sessao.setAttribute("msg", "Usuário não autenticado!");
                     response.sendRedirect("login.jsp");
                 }else{
                     for(Menu menu: usuario.getPerfil().getMenus()){

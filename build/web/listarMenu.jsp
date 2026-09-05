@@ -101,13 +101,13 @@
                                         <c:choose>
                                             <c:when test="${menu.status == 1}">                                            
                                                 <div class="status-desativar status"
-                                                     onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
+                                                    onclick="confirmDesativar('${menu.idMenu}', '${menu.nome}')">
                                                     Desativar
                                                 </div>  
                                             </c:when>            
                                             <c:otherwise>                                               
                                                 <div class="status-ativar status"
-                                                     onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
+                                                    onclick="confirmAtivar('${menu.idMenu}', '${menu.nome}')">
                                                     Ativar
                                                 </div>                                             
                                             </c:otherwise>
@@ -127,39 +127,48 @@
         <!-- 4º --> <script src="datatables/dataTables.bootstrap4.min.js"></script>     
 
         <script>
-                                                         $(document).ready(function () {
-                                                             $('#listarMenu').dataTable({
-                                                                 autoWidth: false,
-                                                                 //dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',                  
-                                                                 /*  
-                                                                  l  =  lengthMenu
-                                                                  f  =  sSearch (pesquisa)           
-                                                                  t  =  Tabela centraliza entre o bloco1 e bloco2            
-                                                                  i  =  sInfo 
-                                                                  p  =  oPaginate (paginação)                        
-                                                                  */
-                                                                 "ordering": false, /* remove o icone de ordem crescente ou decrescente */
-                                                                 "bJQueryUI": true,
-                                                                 "lengthMenu": [[-1], [""]],
-                                                                 "oLanguage": {
-                                                                     "sProcessing": "Processando",
-                                                                     "sLengthMenu": "",
-                                                                     "sZeroRecords": "Não foram encontrados resultados",
-                                                                     "sInfo": "Total de registros: _TOTAL_",
-                                                                     "sInfoEmpty": "",
-                                                                     "sInfoFiltered": "",
-                                                                     "sInfoPostFix": "",
-                                                                     "sSearch": "Pesquisar",
-                                                                     "sUrl": "oi",
-                                                                     "oPaginate": {
-                                                                         "sFirst": "",
-                                                                         "sPrevious": "",
-                                                                         "sNext": "",
-                                                                         "sLast": ""
-                                                                     }
-                                                                 }
-                                                             });
-                                                         });
+            $(document).ready(function () {
+                $('#listarMenu').dataTable({
+                    columnDefs: [
+                        {width: '0px', targets: 0}, // Código
+                        {width: '190px', targets: 1}, // Nome
+                        {width: '190px', targets: 2}, // Link
+                        {width: '190px', targets: 3}, // Exibir
+                        {width: '120px', targets: 4}, // Status
+                        {width: '120px', targets: 5}, // Gerenciar
+                        {width: '120px', targets: 6}  // Ação
+                    ],
+                    autoWidth: false,
+
+                    dom: '<"d-flex justify-content-between align-items-center"lf> t <"d-flex justify-content-between"ip>',
+                    // l  =  lengthMenu
+                    // f  =  sSearch (pesquisa)           
+                    // t  =  Tabela centraliza entre o bloco1 e bloco2            
+                    // i  =  sInfo 
+                    // p  =  oPaginate (paginação)                      
+
+                    "ordering": false, /* remove o icone de ordem crescente ou decrescente */
+                    "bJQueryUI": true,
+                    "lengthMenu": [[-1], [""]],
+                    "oLanguage": {
+                        "sProcessing": "Processando",
+                        "sLengthMenu": "",
+                        "sZeroRecords": "Não foram encontrados resultados",
+                        "sInfo": "Total de registros: _TOTAL_",
+                        "sInfoEmpty": "",
+                        "sInfoFiltered": "",
+                        "sInfoPostFix": "",
+                        "sSearch": "Pesquisar",
+                        "sUrl": "",
+                        "oPaginate": {
+                            "sFirst": "",
+                            "sPrevious": "",
+                            "sNext": "",
+                            "sLast": ""
+                        }
+                    }
+                });
+            });
         </script>         
     </body>    
 </html>

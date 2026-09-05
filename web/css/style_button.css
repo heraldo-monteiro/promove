@@ -3,18 +3,19 @@
 /*  - Atribue estilo em todas as paginas de cadastro
     - aparencia os botoes das tabelas com os resultados da base de dados 
 */
-.status{ 
-    margin-top: 10px;
+.status{
     display: flex;
-    width: 72px;
+    max-width: 90px;
     height: 30px;
     align-items: center;
     justify-content: center;
-    cursor: default;
     text-decoration: none;
     border-radius: 10px;
+    cursor: default;
+    font-size: 12px;
 }
 .status-on{
+    
     background-color: green;
 }
 .status-off{
@@ -40,13 +41,13 @@
     cursor: pointer;
 }
 .status-desvincular{ /*pagina menu Perfil*/
-    width: 90px;
+    width: 96px;
     background-color: rgb(178,34,34);
     cursor: pointer;
 }
 .icon-on .icon-off{
-    width: 32px;
-    height: 32px;
+    width: 10px;
+    height: 10px;
 }
 
 .btn{
@@ -80,7 +81,7 @@ a{
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center; 
+    align-items: center;
 }
 .btn-login{
     display: flex;

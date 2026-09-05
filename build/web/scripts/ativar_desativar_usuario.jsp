@@ -7,12 +7,10 @@
     
     <script type="text/javascript">
         function confirmAtivar(id){           
-            location.href="gerenciarUsuario?acao=ativar&idUsuario="+id;      
-            setTimeout(() => location.reload(), 500);  
+            location.href="gerenciarUsuario?acao=ativar&idUsuario="+id;   
         }                                        
                  
         function confirmDesativar(id){            
             location.href="gerenciarUsuario?acao=desativar&idUsuario="+id;
-            setTimeout(() => location.reload(), 500);
         }                                        
     </script>     
